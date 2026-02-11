@@ -4,7 +4,7 @@ Hacer un programa que gestione la informacion de un camper. Un camper puede ver 
 """
 
 from gestion_datos import cargar_datos, guardar_datos
-from gestion_campers import gestion_herramientas
+from gestion_herramientas import gestion_herramientas1
 
 def menu():
     datos = cargar_datos()
@@ -23,7 +23,7 @@ def menu():
         opcion = input("Seleccione una opción: ")
         
         if opcion == "1":
-            gestion_herramientas(datos)
+            gestion_herramientas1(datos)
         elif opcion == "2":
             pass
         elif opcion == "3":

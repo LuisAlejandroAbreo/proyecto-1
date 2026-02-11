@@ -1,4 +1,4 @@
-def gestion_herramientas(datos):
+def gestion_herramientas1(datos):
 
 
     print("\nGESTION DE HERRAMIENTAS")
