@@ -1,4 +1,4 @@
-def validar_id(datos):
+def validar_id():
     while True:
         id_herramienta = input("Ingrese el ID de la herramienta: ").strip()
         
@@ -7,9 +7,6 @@ def validar_id(datos):
         
         elif not id_herramienta.isdigit():
             print("Error: El ID solo debe contener números.")
-        
-        elif id_herramienta in datos:
-            print("Error: Ese ID ya existe.")
         
         else:
             return id_herramienta
@@ -70,30 +67,33 @@ def gestion_herramientas1(datos):
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":    
-            id_herramienta = validar_id(datos)
-            nombre_herramienta = validar_texto("Ingrese el nombre de la herramienta: ")
-            categoria_herramienta = validar_texto("Ingrese categoria de la herramienta: ")
-            cant_disp_herramienta = validar_entero_positivo("Ingrese la cantidad disponible: ")
-            estado_herramienta = validar_estado()
-            valor_est_herramienta = validar_decimal_positivo("Ingrese el valor estimado: ")
-            agregar_herramientas(datos, id_herramienta, nombre_herramienta, categoria_herramienta, cant_disp_herramienta, estado_herramienta, valor_est_herramienta)
+            agregar_herramientas(datos)
         elif opcion == "2":
             listar_herramientas(datos)
         elif opcion == "3":
-            buscar_herramienta()
+            buscar_herramienta(datos)
         elif opcion == "4":
             actualizar_herramienta(datos)
         elif opcion == "5":
             eliminar_herramienta(datos)
         elif opcion == "6":
-            pass
+            inactivar_herramienta(datos)
         elif opcion == "7":
             break
         else:
             print("Opcion inválida. Digíte un número del 1 al 7")
         input("Presione cualquier tecla para continuar")
 
-def agregar_herramientas(datos, id_herramienta, nombre_herramienta, categoria_herramienta, cant_disp_herramienta, estado_herramienta, valor_est_herramienta) :
+def agregar_herramientas(datos) :
+    id_herramienta = validar_id()
+    if id_herramienta in datos:
+            print("Error: Ese ID ya existe.")
+            return
+    nombre_herramienta = validar_texto("Ingrese el nombre de la herramienta: ")
+    categoria_herramienta = validar_texto("Ingrese categoria de la herramienta: ")
+    cant_disp_herramienta = validar_entero_positivo("Ingrese la cantidad disponible: ")
+    estado_herramienta = validar_estado()
+    valor_est_herramienta = validar_decimal_positivo("Ingrese el valor estimado: ")
 
     datos[id_herramienta] = {
         "Nombre": nombre_herramienta,
@@ -118,8 +118,23 @@ def listar_herramientas(datos):
             print(f"-{key} -> {valor}")
         print(f"{'-'*30}\n")
 
-def buscar_herramienta():
-    pass
+def buscar_herramienta(datos):
+    print("\n\n3. Busqueda de Herramienta\n\n")
+
+    if not datos:
+        print("El inventario está vacío. No hay herramientas para buscar.")
+        return
+    
+    id_herra = validar_id()
+    if id_herra not in datos:
+            print("Herramienta no encontrada.")
+            return
+
+    producto = datos[id_herra]
+    print(f"\nHerramienta con ID: {id_herra}")
+    for key, valor in producto.items():
+        print(f"-{key} -> {valor}")
+    print(f"{'-'*30}\n")
 
 def actualizar_herramienta(datos):
     print("\n\n4. Actualizacion de Herramienta\n\n")
@@ -127,18 +142,22 @@ def actualizar_herramienta(datos):
     if not datos:
         print("El inventario está vacío. No hay herramientas para actualizar.")
         return
-
-    id_herra = input("ID de la herramienta a modificar: ")
+    
+    id_herra = validar_id()
     if id_herra not in datos:
-        print("Herramienta no encontrada.")
-        return
+            print("Herramienta no encontrada.")
+            return
 
-    print("Deje vacío para mantener el valor actual de la herramienta.")
-    nombre = input(f"Nombre ({datos[id_herra]['Nombre']}): ")
-    categoria = input(f"Categoria ({datos[id_herra]['Categoria']}): ")
-    cantidad = input(f"Cantidad ({datos[id_herra]['Cantidad']}): ")
-    estado = input(f"Estado ({datos[id_herra]['Estado']}): ")
-    valor = input(f"Valor $ ({datos[id_herra]['Valor']}): ")
+    print(f"Nombre ({datos[id_herra]['Nombre']}): ")
+    nombre = validar_texto("Ingrese el nuevo nombre: ")
+    print(f"Categoria ({datos[id_herra]['Categoria']}): ")
+    categoria = validar_texto("Ingrese la nueva categoria: ")
+    print(f"Cantidad ({datos[id_herra]['Cantidad']}): ")
+    cantidad = validar_entero_positivo("Ingrese la nueva cantidad: ")
+    print(f"Estado ({datos[id_herra]['Estado']}): ")
+    estado = validar_estado()
+    print(f"Valor $ ({datos[id_herra]['Valor']}): ")
+    valor = validar_decimal_positivo("Ingrese el nuevo valor: ")
 
     if nombre:
         datos[id_herra]["Nombre"] = nombre
@@ -160,7 +179,7 @@ def eliminar_herramienta(datos):
         print("El inventario está vacío. No hay herramientas para eliminar.")
         return
     
-    id_herra = input("Código de la herramienta a eliminar: ")
+    id_herra = validar_id()
     
     if id_herra not in datos:
         print(f"No existe una herramienta con el ID {id_herra}")
@@ -182,3 +201,18 @@ def eliminar_herramienta(datos):
         print(f"\nLa herramienta con con ID {id_herra} ha sido eliminada")    
     else:
         print("\nOperación cancelada. La herramienta no fue eliminada.")
+
+def inactivar_herramienta(datos):
+    print("\n\n6. Inactivacion de Herramienta\n\n")
+
+    if not datos:
+        print("El inventario está vacío. No hay herramientas para inactivar.")
+        return
+    
+    id_herra = validar_id()
+    if id_herra not in datos:
+            print("Herramienta no encontrada.")
+            return
+
+    datos[id_herra]["Estado"] = "Inactiva"
+    print("Herramienta inactivada.")
