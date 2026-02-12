@@ -42,10 +42,10 @@ def validar_texto(mensaje):
             print("Error: Solo se permiten letras y espacios.")
 
 def validar_estado():
-    estados_validos = ["activa", "reparacion", "fuera de servicio", "inactiva"]
+    estados_validos = ["activa", "reparacion", "fuera de servicio"]
 
     while True:
-        estado = input("Ingrese el estado (Activa/Reparacion/Fuera de servicio/Inactiva): ").lower()
+        estado = input("Ingrese el estado (Activa/Reparacion/Fuera de servicio): ").lower()
         if estado in estados_validos:
             return estado.capitalize()
         else:
@@ -110,12 +110,16 @@ def agregar_herramientas(datos) :
     print("\nHerramienta agregada correctamente")
 
 def listar_herramientas(datos):
-    print("\n\n2. Listado de Herramientas\n\n")
 
     if not datos:
         print("No hay herramientas registradas.")
         return
-    
+    for id_herramientas, keys  in datos.items():
+        if keys["Estado"] == "Inactiva":
+            print("No hay herramientas para mostrar.")
+            return
+
+    print("\n\n2. Listado de Herramientas\n\n")    
     for id_herramientas, keys  in datos.items():
         print(f"\nHerramienta con ID: {id_herramientas}")
         for key, valor in keys.items():
@@ -123,12 +127,12 @@ def listar_herramientas(datos):
         print(f"{'-'*30}\n")
 
 def buscar_herramienta(datos):
-    print("\n\n3. Busqueda de Herramienta\n\n")
 
     if not datos:
         print("El inventario está vacío. No hay herramientas para buscar.")
         return
     
+    print("\n\n3. Busqueda de Herramienta\n\n")
     id_herra = validar_id()
     if id_herra not in datos:
             print("Herramienta no encontrada.")
@@ -141,12 +145,12 @@ def buscar_herramienta(datos):
     print(f"{'-'*30}\n")
 
 def actualizar_herramienta(datos):
-    print("\n\n4. Actualizacion de Herramienta\n\n")
 
     if not datos:
         print("El inventario está vacío. No hay herramientas para actualizar.")
         return
     
+    print("\n\n4. Actualizacion de Herramienta\n\n")
     id_herra = validar_id()
     if id_herra not in datos:
             print("Herramienta no encontrada.")
@@ -177,12 +181,12 @@ def actualizar_herramienta(datos):
     print("Herramienta actualizada.")
 
 def eliminar_herramienta(datos):
-    print("\n\n5. Eliminacion de Herramienta\n\n")
 
     if not datos:
         print("El inventario está vacío. No hay herramientas para eliminar.")
         return
     
+    print("\n\n5. Eliminacion de Herramienta\n\n")
     id_herra = validar_id()
     
     if id_herra not in datos:
@@ -211,16 +215,19 @@ def eliminar_herramienta(datos):
             print("\nNo digito correctamente las opciones")
 
 def inactivar_herramienta(datos):
-    print("\n\n6. Inactivacion de Herramienta\n\n")
-
+   
     if not datos:
         print("El inventario está vacío. No hay herramientas para inactivar.")
         return
     
+    print("\n\n6. Inactivacion de Herramienta\n\n")
     id_herra = validar_id()
     if id_herra not in datos:
             print("Herramienta no encontrada.")
             return
-
-    datos[id_herra]["Estado"] = "Inactiva"
-    print("Herramienta inactivada.")
+    if datos[id_herra]["Estado"] == "Inactiva":
+        print("La herramienta ya está inactiva.")
+        return
+    else:
+        datos[id_herra]["Estado"] = "Inactiva"
+        print("Herramienta inactivada correctamente.")
