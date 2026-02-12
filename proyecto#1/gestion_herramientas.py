@@ -116,13 +116,12 @@ def listar_herramientas(datos):
     if not datos:
         print("No hay herramientas registradas.")
         return
-    for id_herramientas, keys  in datos.items():
-        if keys["Estado"] == "Inactiva":
-            print("No hay herramientas para mostrar.")
-            return
+    
 
     print("\n\n2. Listado de Herramientas\n\n")    
     for id_herramientas, keys  in datos.items():
+        if keys["Estado"] == "Inactiva":
+            continue
         print(f"\nHerramienta con ID: {id_herramientas}")
         for key, valor in keys.items():
             print(f"-{key} -> {valor}")
