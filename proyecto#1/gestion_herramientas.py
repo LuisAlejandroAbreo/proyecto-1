@@ -89,6 +89,8 @@ def gestion_herramientas1(datos):
         input("Presione cualquier tecla para continuar")
 
 def agregar_herramientas(datos) :
+
+    print("\n\n1. Digitizacion de Herramienta\n\n")
     id_herramienta = validar_id()
     if id_herramienta in datos:
             print("Error: Ese ID ya existe.")
