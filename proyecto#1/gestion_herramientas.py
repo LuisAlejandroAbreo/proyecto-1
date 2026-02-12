@@ -1,3 +1,5 @@
+from gestion_datos import guardar_datos
+
 def validar_id():
     while True:
         id_herramienta = input("Ingrese el ID de la herramienta: ").strip()
@@ -61,7 +63,7 @@ def gestion_herramientas1(datos):
 4. Actualizar herramienta
 5. Eliminar herramienta
 6. Inactivar herramienta
-7. Salir al menu principal
+7. Gurdar datos y salir al menu principal
 --------------------------------
 """)
         opcion = input("Seleccione una opción: ")
@@ -79,6 +81,8 @@ def gestion_herramientas1(datos):
         elif opcion == "6":
             inactivar_herramienta(datos)
         elif opcion == "7":
+            guardar_datos(datos)
+            print("Datos guardados. Saliendo ... \n\n")
             break
         else:
             print("Opcion inválida. Digíte un número del 1 al 7")
@@ -194,13 +198,17 @@ def eliminar_herramienta(datos):
     print(f"Estado: {producto['Estado']}")
     print(f"Valor: {producto['Valor']}")
     
-    confirmacion = input("\n¿Está seguro que desea eliminar esta herramienta? \nPresione S para continuar o cualquier otra letra para cancelar: ").lower()
-
-    if confirmacion == 's':
-        del datos[id_herra]
-        print(f"\nLa herramienta con con ID {id_herra} ha sido eliminada")    
-    else:
-        print("\nOperación cancelada. La herramienta no fue eliminada.")
+    while True:
+        confirmacion = input("\n¿Está seguro que desea eliminar esta herramienta? \nPresione S para confirmar o N  para cancelar: ").lower()
+        if confirmacion == 's':
+            del datos[id_herra]
+            print(f"\nLa herramienta con ID {id_herra} ha sido eliminada")
+            break
+        elif confirmacion == 'n': 
+            print("\nOperación cancelada. La herramienta no fue eliminada.")  
+            break
+        else:
+            print("\nNo digito correctamente las opciones")
 
 def inactivar_herramienta(datos):
     print("\n\n6. Inactivacion de Herramienta\n\n")

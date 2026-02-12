@@ -3,7 +3,7 @@ Ejercicio:
 Hacer un programa que gestione la informacion de un camper. Un camper puede ver 1 o varios skill. Por cada skill hay una nota definitiva. El programa debe cargar, agregar, modificar, eliminar y guardar la informacion del camper de manera persistente.
 """
 
-from gestion_datos import cargar_datos, guardar_datos
+from gestion_datos import cargar_datos
 from gestion_herramientas import gestion_herramientas1
 
 def menu():
@@ -17,7 +17,7 @@ def menu():
 4. Consultas y reportes
 5. Registro de eventos (logs)
 6. Permisos a manejar
-7. Guardar o salir
+7. Salir del programa
 --------------------------------
 """)
         opcion = input("Seleccione una opción: ")
@@ -37,8 +37,7 @@ def menu():
             id_camper = input("\n\n\nIngrese el ID del camper: ")
             skill = input("Ingrese el skill: ")  
         elif opcion == "7":
-            guardar_datos(datos)
-            print("Datos guardados. Saliendo ... \n\n")
+            print("Salida del programa. Hasta luego!")
             break
         else:
             print("Opción inválida. Intente de nuevo")
