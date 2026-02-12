@@ -1,5 +1,59 @@
-def gestion_herramientas1(datos):
+def validar_id(datos):
+    while True:
+        id_herramienta = input("Ingrese el ID de la herramienta: ").strip()
+        
+        if not id_herramienta:
+            print("Error: El ID no puede estar vacío.")
+        
+        elif not id_herramienta.isdigit():
+            print("Error: El ID solo debe contener números.")
+        
+        elif id_herramienta in datos:
+            print("Error: Ese ID ya existe.")
+        
+        else:
+            return id_herramienta
 
+def validar_entero_positivo(mensaje):
+    while True:
+        valor = input(mensaje)
+        if valor.isdigit() and int(valor) >= 0:
+            return int(valor)
+        else:
+            print("Error: Debe ingresar un número entero positivo.")
+
+def validar_decimal_positivo(mensaje):
+    while True:
+        valor = input(mensaje)
+        try:
+            valor = float(valor)
+            if valor >= 0:
+                return valor
+            else:
+                print("Error: El valor debe ser positivo.")
+        except ValueError:
+            print("Error: Debe ingresar un número válido.")
+
+def validar_texto(mensaje):
+    while True:
+        texto = input(mensaje).strip()
+        if texto.replace(" ", "").isalpha():
+            return texto.title()
+        else:
+            print("Error: Solo se permiten letras y espacios.")
+
+def validar_estado():
+    estados_validos = ["disponible", "prestada", "dañada", "inactiva"]
+
+    while True:
+        estado = input("Ingrese el estado (Disponible/Prestada/Dañada/Inactiva): ").lower()
+        if estado in estados_validos:
+            return estado.capitalize()
+        else:
+            print("Estado inválido. Opciones válidas:")
+            print(", ".join(estados_validos))
+
+def gestion_herramientas1(datos):
 
     print("\nGESTION DE HERRAMIENTAS")
     while True:
@@ -16,12 +70,12 @@ def gestion_herramientas1(datos):
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":    
-            id_herramienta = input("\nIngrese el id de la herramienta: ")
-            nombre_herramienta = input("\nIngrese el nombre de la herramienta: ")
-            categoria_herramienta = input("\nIngrese categoria de la herramienta: ")
-            cant_disp_herramienta = input("\nIngrese la cantidad disponible de la herramienta: ")
-            estado_herramienta = input("\nIngrese el estado de la herramienta: ")
-            valor_est_herramienta = input("\nIngrese el valor estimado de la herramienta: ")
+            id_herramienta = validar_id(datos)
+            nombre_herramienta = validar_texto("Ingrese el nombre de la herramienta: ")
+            categoria_herramienta = validar_texto("Ingrese categoria de la herramienta: ")
+            cant_disp_herramienta = validar_entero_positivo("Ingrese la cantidad disponible: ")
+            estado_herramienta = validar_estado()
+            valor_est_herramienta = validar_decimal_positivo("Ingrese el valor estimado: ")
             agregar_herramientas(datos, id_herramienta, nombre_herramienta, categoria_herramienta, cant_disp_herramienta, estado_herramienta, valor_est_herramienta)
         elif opcion == "2":
             listar_herramientas(datos)
@@ -41,16 +95,12 @@ def gestion_herramientas1(datos):
 
 def agregar_herramientas(datos, id_herramienta, nombre_herramienta, categoria_herramienta, cant_disp_herramienta, estado_herramienta, valor_est_herramienta) :
 
-    if id_herramienta in datos:
-        print("La Herramienta ya existe.")
-        return
-
     datos[id_herramienta] = {
         "Nombre": nombre_herramienta,
         "Categoria": categoria_herramienta,
-        "Cantidad": cant_disp_herramienta,
+        "Cantidad": int(cant_disp_herramienta),
         "Estado": estado_herramienta,    
-        "Valor" : valor_est_herramienta
+        "Valor" : float(valor_est_herramienta)
                 }
     
     print("\nHerramienta agregada correctamente")
