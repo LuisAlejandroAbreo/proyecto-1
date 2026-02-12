@@ -1,13 +1,11 @@
-"""
-Ejercicio:
-Hacer un programa que gestione la informacion de un camper. Un camper puede ver 1 o varios skill. Por cada skill hay una nota definitiva. El programa debe cargar, agregar, modificar, eliminar y guardar la informacion del camper de manera persistente.
-"""
-
 from gestion_datos import cargar_datos
+from gestion_datos1 import cargar_datos1
+from gestion_usuarios import gestion_usuarios1
 from gestion_herramientas import gestion_herramientas1
 
 def menu():
     datos = cargar_datos()
+    datos1 = cargar_datos1()
     while True:
         print("""
 \nHERRAMIENTAS
@@ -25,7 +23,7 @@ def menu():
         if opcion == "1":
             gestion_herramientas1(datos)
         elif opcion == "2":
-            pass
+            gestion_usuarios1(datos1)
         elif opcion == "3":
             pass
         elif opcion == "4":
