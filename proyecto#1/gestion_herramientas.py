@@ -42,10 +42,10 @@ def validar_texto(mensaje):
             print("Error: Solo se permiten letras y espacios.")
 
 def validar_estado():
-    estados_validos = ["disponible", "prestada", "dañada", "inactiva"]
+    estados_validos = ["activa", "reparacion", "fuera de servicio", "inactiva"]
 
     while True:
-        estado = input("Ingrese el estado (Disponible/Prestada/Dañada/Inactiva): ").lower()
+        estado = input("Ingrese el estado (Activa/Reparacion/Fuera de servicio/Inactiva): ").lower()
         if estado in estados_validos:
             return estado.capitalize()
         else:
