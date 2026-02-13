@@ -1,0 +1,14 @@
+[2026-02-13 00:24:42] [WARNING] Intento de login con ID inexistente: 2
+[2026-02-13 00:25:39] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 00:26:14] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-13 00:26:35] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 00:27:29] [WARNING] Intento de login con ID inexistente: 22
+[2026-02-13 00:27:48] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-13 00:30:46] [WARNING] Intento de login con ID inexistente: 22
+[2026-02-13 00:31:05] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-13 00:31:16] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-13 00:33:13] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 08:47:03] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 08:47:11] [WARNING] Intento de login con ID inexistente: 3
+[2026-02-13 08:47:31] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-13 08:47:49] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador

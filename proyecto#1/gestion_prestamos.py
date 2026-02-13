@@ -1,6 +1,6 @@
 from datetime import datetime
 from gestion_datos_prestamos import guardar_datos2
-from gestion_datos import guardar_datos
+from gestion_datos_herramientas import guardar_datos
 
 def validar_id_prestamo(prestamos):
     while True:
