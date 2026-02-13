@@ -40,7 +40,7 @@ def menu():
             if tipo == "Administrador":
                 while True:
                     print("""
- 1. Aprobar solicitudes
+1. Aprobar solicitudes
 2. Volver""")
                     op_admin = input("Seleccione opción: ")
 

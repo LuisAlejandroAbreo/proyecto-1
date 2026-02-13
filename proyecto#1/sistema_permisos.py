@@ -9,7 +9,7 @@ def login(usuarios):
     if id_usuario not in usuarios:
         print("Usuario no encontrado.")
         registrar_evento("WARNING", f"Intento de login con ID inexistente: {id_usuario}")
-        return None
+        return
 
     tipo = usuarios[id_usuario]["Tipo"]
 
