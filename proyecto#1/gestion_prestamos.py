@@ -14,7 +14,6 @@ def validar_id_prestamo(prestamos):
         else:
             return id_prestamo
 
-
 def validar_fecha(mensaje):
     while True:
         fecha = input(mensaje)
@@ -25,7 +24,6 @@ def validar_fecha(mensaje):
             print("Formato inválido. Use YYYY-MM-DD")
 
 def gestion_prestamos(herramientas, usuarios, prestamos):
-
 
     while True:
         print("""
@@ -55,7 +53,6 @@ def gestion_prestamos(herramientas, usuarios, prestamos):
             print("Opción inválida")
 
 def registrar_prestamo(prestamos, herramientas, usuarios):
-
 
     if not herramientas:
         print("No hay herramientas registradas.")
