@@ -17,7 +17,7 @@ def herramientas_stock_bajo(herramientas, limite=3):
         print("No hay herramientas con stock bajo.")
 
 def prestamos_activos_vencidos(prestamos):
-    print("\n📋 PRÉSTAMOS ACTIVOS Y VENCIDOS\n")
+    print("\nPRÉSTAMOS ACTIVOS Y VENCIDOS\n")
 
     hoy = datetime.now().date()
     encontrados = False
