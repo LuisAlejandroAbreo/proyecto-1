@@ -77,7 +77,7 @@ def registrar_prestamo(prestamos, herramientas, usuarios):
         print("Herramienta no existe.")
         return
     if id_herramienta in herramientas and herramientas[id_herramienta]["Estado"] == "Inactiva":
-        print("Herramienta está inactiva.")
+        print("Esta herramienta está inactiva.")
         return
 
     cantidad = int(input("Cantidad a prestar: "))
