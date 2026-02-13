@@ -122,7 +122,6 @@ def devolver_herramienta(prestamos, herramientas):
     herramientas[id_herramienta]["Cantidad"] += cantidad
 
     prestamos[id_prestamo]["Estado"] = "Devuelto"
-    herramientas[id_herramienta]["Cantidad"] += cantidad
     guardar_datos(herramientas)
     guardar_datos2(prestamos)
 
