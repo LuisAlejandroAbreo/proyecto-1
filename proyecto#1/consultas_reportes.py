@@ -1,11 +1,7 @@
 from datetime import datetime
 
-# -------------------------------
-# 1️⃣ Herramientas con stock bajo
-# -------------------------------
-
 def herramientas_stock_bajo(herramientas, limite=3):
-    print("\n🔎 HERRAMIENTAS CON STOCK BAJO\n")
+    print("\nHERRAMIENTAS CON STOCK BAJO\n")
 
     encontradas = False
 
@@ -19,11 +15,6 @@ def herramientas_stock_bajo(herramientas, limite=3):
 
     if not encontradas:
         print("No hay herramientas con stock bajo.")
-
-
-# -----------------------------------
-# 2️⃣ Préstamos activos y vencidos
-# -----------------------------------
 
 def prestamos_activos_vencidos(prestamos):
     print("\n📋 PRÉSTAMOS ACTIVOS Y VENCIDOS\n")
@@ -49,13 +40,8 @@ def prestamos_activos_vencidos(prestamos):
     if not encontrados:
         print("No hay préstamos activos.")
 
-
-# -----------------------------------
-# 3️⃣ Historial de préstamos usuario
-# -----------------------------------
-
 def historial_usuario(prestamos, usuarios):
-    print("\n📚 HISTORIAL DE PRÉSTAMOS POR USUARIO\n")
+    print("\nHISTORIAL DE PRÉSTAMOS POR USUARIO\n")
 
     id_usuario = input("Ingrese ID del usuario: ")
 
@@ -79,13 +65,8 @@ def historial_usuario(prestamos, usuarios):
     if not encontrados:
         print("Este usuario no tiene préstamos registrados.")
 
-
-# -----------------------------------
-# 4️⃣ Herramientas más solicitadas
-# -----------------------------------
-
 def herramientas_mas_solicitadas(prestamos, herramientas):
-    print("\n🏆 HERRAMIENTAS MÁS SOLICITADAS\n")
+    print("\nHERRAMIENTAS MÁS SOLICITADAS\n")
 
     contador = {}
 
@@ -110,13 +91,8 @@ def herramientas_mas_solicitadas(prestamos, herramientas):
         print(f"Total solicitada: {total}")
         print("-" * 30)
 
-
-# -----------------------------------
-# 5️⃣ Usuarios que más solicitan
-# -----------------------------------
-
 def usuarios_mas_activos(prestamos, usuarios):
-    print("\n👥 USUARIOS QUE MÁS HERRAMIENTAS SOLICITAN\n")
+    print("\n USUARIOS QUE MÁS HERRAMIENTAS SOLICITAN\n")
 
     contador = {}
 
@@ -141,16 +117,11 @@ def usuarios_mas_activos(prestamos, usuarios):
         print(f"Total herramientas solicitadas: {total}")
         print("-" * 30)
 
-
-# -----------------------------------
-# MENÚ DE CONSULTAS
-# -----------------------------------
-
 def menu_consultas(herramientas, usuarios, prestamos):
 
     while True:
         print("""
-📊 CONSULTAS Y REPORTES
+ CONSULTAS Y REPORTES
 
 1. Herramientas con stock bajo
 2. Préstamos activos y vencidos
