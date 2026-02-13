@@ -4,6 +4,7 @@ from gestion_datos_prestamos import cargar_datos2
 from gestion_usuarios import gestion_usuarios1
 from gestion_herramientas import gestion_herramientas1
 from gestion_prestamos import gestion_prestamos
+from consultas_reportes import menu_consultas
 
 def menu():
     datos = cargar_datos()
@@ -30,10 +31,9 @@ def menu():
         elif opcion == "3":
             gestion_prestamos(datos, datos1, datos_prestamos)
         elif opcion == "4":
-            id_camper = input("\n\n\nIngrese el ID del camper: ")
+            menu_consultas(datos, datos1, datos_prestamos)
         elif opcion == "5":
-            id_camper = input("\n\n\nIngrese el ID del camper: ")
-            skill = input("Ingrese el skill: ")
+            pass
         elif opcion == "6":
             id_camper = input("\n\n\nIngrese el ID del camper: ")
             skill = input("Ingrese el skill: ")  

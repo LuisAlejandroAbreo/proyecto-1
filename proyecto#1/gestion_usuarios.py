@@ -1,7 +1,5 @@
-"""
-id, nombres, apellidos, teléfono, dirección y tipo de usuario (ej. residente, administrador).
-Operaciones: crear, listar, buscar, actualizar y eliminar usuarios.
-"""
+from gestion_datos1 import guardar_datos1
+
 def validar_id():
     while True:
         id_vecino = input("Ingrese el ID del vecino: ").strip()
@@ -51,9 +49,6 @@ def validar_tipo():
         else:
             print("Estado inválido. Opciones válidas:")
             print(", ".join(estados_validos))
-
-from gestion_datos1 import guardar_datos1
-
 
 def gestion_usuarios1(datos1):
 
