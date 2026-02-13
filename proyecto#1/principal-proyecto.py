@@ -1,11 +1,14 @@
 from gestion_datos import cargar_datos
 from gestion_datos1 import cargar_datos1
+from gestion_datos_prestamos import cargar_datos2
 from gestion_usuarios import gestion_usuarios1
 from gestion_herramientas import gestion_herramientas1
+from gestion_prestamos import gestion_prestamos
 
 def menu():
     datos = cargar_datos()
     datos1 = cargar_datos1()
+    datos_prestamos = cargar_datos2()
     while True:
         print("""
 \nHERRAMIENTAS
@@ -25,7 +28,7 @@ def menu():
         elif opcion == "2":
             gestion_usuarios1(datos1)
         elif opcion == "3":
-            pass
+            gestion_prestamos(datos, datos1, datos_prestamos)
         elif opcion == "4":
             id_camper = input("\n\n\nIngrese el ID del camper: ")
         elif opcion == "5":

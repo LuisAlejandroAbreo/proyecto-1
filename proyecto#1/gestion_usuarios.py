@@ -34,11 +34,12 @@ def validar_tel(mensaje):
 
 def validar_dire(mensaje):
     while True:
-        texto = input(mensaje).strip()
-        if texto.replace(" ", "").isalpha():
-            return texto.title()
+        direccion = input(mensaje).strip().title()
+        
+        if "#" in direccion and "-" in direccion and len(direccion) > 10:
+            return direccion
         else:
-            print("Error: Solo se permiten letras y espacios.")
+            print("Dirección inválida. Debe contener # y -")
 
 def validar_tipo():
     estados_validos = ["residente", "administrador"]
