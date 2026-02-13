@@ -63,6 +63,7 @@ def menu():
                                 solicitar_herramienta(usuario_actual, solicitudes, datos)
                     elif op_user == "3":
                         break 
+             
         elif opcion == "6":
             print("Salida del programa. Hasta luego!")
             break

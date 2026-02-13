@@ -20,3 +20,16 @@
 [2026-02-13 08:57:32] [INFO] Solicitud aprobada. ID solicitud: 1, Generó préstamo: 8
 [2026-02-13 08:59:47] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
 [2026-02-13 08:59:55] [WARNING] Intento de login con ID inexistente: 3333
+[2026-02-13 09:12:18] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 09:14:29] [WARNING] Intento de login con ID inexistente: 6666
+[2026-02-13 09:16:34] [WARNING] Intento de login con ID inexistente: 3
+[2026-02-13 09:17:32] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 09:17:42] [WARNING] Intento de login con ID inexistente: 22
+[2026-02-13 09:18:08] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 09:18:26] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-13 09:19:43] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-13 09:19:52] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 09:19:59] [WARNING] Intento de login con ID inexistente: 34343
+[2026-02-13 09:20:51] [WARNING] Intento de login con ID inexistente: 4343434
+[2026-02-13 09:20:56] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-13 09:21:11] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente

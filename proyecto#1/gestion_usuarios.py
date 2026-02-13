@@ -2,7 +2,7 @@ from gestion_datos_usuarios import guardar_datos1
 
 def validar_id():
     while True:
-        id_vecino = input("Ingrese el ID del vecino: ").strip()
+        id_vecino = input("Ingrese el ID del usuario: ").strip()
         
         if not id_vecino:
             print("Error: El ID no puede estar vacío.")
@@ -89,10 +89,10 @@ def crear_usuario(datos1):
     if id_vecino in datos1:
             print("Error: Ese ID ya existe.")
             return
-    nombre_vecino = validar_nombres("Ingrese el nombre del vecino: ")
-    apellido_vecino = validar_nombres("Ingrese el apellido del vecino: ")
-    telefono_vecino = validar_tel("Ingrese el telefono del vecino: ")
-    direccion_vecino = validar_dire("Ingrese la direccion del vecino: ")
+    nombre_vecino = validar_nombres("Ingrese el nombre del usuario: ")
+    apellido_vecino = validar_nombres("Ingrese el apellido del usuario: ")
+    telefono_vecino = validar_tel("Ingrese el telefono del usuario: ")
+    direccion_vecino = validar_dire("Ingrese la direccion del usuario: ")
     tipo_vecino = validar_tipo()
 
     datos1[id_vecino] = {
@@ -107,83 +107,83 @@ def crear_usuario(datos1):
 
 def listar_usuarios(datos1):
     if not datos1:
-        print("No hay vecinos registrados.")
+        print("No hay usuarios registrados.")
         return
 
-    print("\n\n2. Listado de vecinos\n\n")    
-    for id_vecino, keys  in datos1.items():
-        print(f"\nVecino con ID: {id_vecino}")
+    print("\n\n2. Listado de usuarios\n\n")    
+    for id_usuario, keys  in datos1.items():
+        print(f"\nUsuario con ID: {id_usuario}")
         for key, valor in keys.items():
             print(f"-{key} -> {valor}")
         print(f"{'-'*30}\n")
 
 def buscar_usuario(datos1):
     if not datos1:
-        print("El inventario está vacío. No hay vecinos para buscar.")
+        print("El inventario está vacío. No hay usuarios para buscar.")
         return
     
-    print("\n\n3. Busqueda de Vecinos\n\n")
-    id_veci = validar_id()
-    if id_veci not in datos1:
-            print("Vecino no encontrado.")
+    print("\n\n3. Busqueda de Usuarios\n\n")
+    id_usuario = validar_id()
+    if id_usuario not in datos1:
+            print("Usuario no encontrado.")
             return
 
-    producto = datos1[id_veci]
-    print(f"\nVecino con ID: {id_veci}")
+    producto = datos1[id_usuario]
+    print(f"\nUsuario con ID: {id_usuario}")
     for key, valor in producto.items():
         print(f"-{key} -> {valor}")
     print(f"{'-'*30}\n")
 
 def actualizar_usuario(datos1):
     if not datos1:
-        print("El inventario está vacío. No hay vecinos para actualizar.")
+        print("El inventario está vacío. No hay usuarios para actualizar.")
         return
     
-    print("\n\n4. Actualizacion de Vecino\n\n")
-    id_veci = validar_id()
-    if id_veci not in datos1:
-            print("Vecino no encontrado.")
+    print("\n\n4. Actualizacion de Usuario\n\n")
+    id_usuario = validar_id()
+    if id_usuario not in datos1:
+            print("Usuario no encontrado.")
             return
 
-    print(f"Nombre ({datos1[id_veci]['Nombre']}): ")
+    print(f"Nombre ({datos1[id_usuario]['Nombre']}): ")
     nombre = validar_nombres("Ingrese el nuevo nombre: ")
-    print(f"Apellido ({datos1[id_veci]['Apellido']}): ")
+    print(f"Apellido ({datos1[id_usuario]['Apellido']}): ")
     apellido = validar_nombres("Ingrese el nuevo apellido: ")
-    print(f"Telefono ({datos1[id_veci]['Telefono']}): ")
+    print(f"Telefono ({datos1[id_usuario]['Telefono']}): ")
     telefono = validar_tel("Ingrese el nuevo telefono: ")
-    print(f"Direccion ({datos1[id_veci]['Direccion']}): ")
+    print(f"Direccion ({datos1[id_usuario]['Direccion']}): ")
     direccion = validar_dire("Ingrese la nueva direccion: ")
-    print(f"Tipo ({datos1[id_veci]['Tipo']}): ")
+    print(f"Tipo ({datos1[id_usuario]['Tipo']}): ")
     tipo = validar_tipo()
 
     if nombre:
-        datos1[id_veci]["Nombre"] = nombre
+        datos1[id_usuario]["Nombre"] = nombre
     if apellido:
-        datos1[id_veci]["Apellido"] = apellido
+        datos1[id_usuario]["Apellido"] = apellido
     if telefono:
-        datos1[id_veci]["Telefono"] = int(telefono)
+        datos1[id_usuario]["Telefono"] = int(telefono)
     if direccion:
-        datos1[id_veci]["Direccion"] = direccion
+        datos1[id_usuario]["Direccion"] = direccion
     if tipo:
-        datos1[id_veci]["Tipo"] = tipo
+        datos1[id_usuario]["Tipo"] = tipo
     
-    print("Vecino actualizado.")
+    print("Usuario actualizado.")
 
 def eliminar_usuario(datos1):
     if not datos1:
-        print("El inventario está vacío. No hay vecinos para eliminar.")
+        print("El inventario está vacío. No hay usuarios para eliminar.")
         return
     
-    print("\n\n5. Eliminacion de Vecino\n\n")
-    id_veci = validar_id()
+    print("\n\n5. Eliminacion de Usuario\n\n")
+    id_usuario = validar_id()
     
-    if id_veci  not in datos1:
-        print(f"No existe un vecino con el ID {id_veci }")
+    if id_usuario not in datos1:
+        print(f"No existe un usuario con el ID {id_usuario}")
         return
     
-    persona = datos1[id_veci]
+    persona = datos1[id_usuario]
     print("\nUsuario a eliminar:")
-    print(f"ID: {id_veci}")
+    print(f"ID: {id_usuario}")
     print(f"Nombre: {persona['Nombre']}")
     print(f"Apellido: {persona['Apellido']}")
     print(f"Telefono: {persona['Telefono']}")
@@ -193,8 +193,8 @@ def eliminar_usuario(datos1):
     while True:
         confirmacion = input("\n¿Está seguro que desea eliminar a este usuario? \nPresione S para confirmar o N  para cancelar: ").lower()
         if confirmacion == 's':
-            del datos1[id_veci]
-            print(f"\nEl vecino con ID {id_veci} ha sido eliminado")
+            del datos1[id_usuario]
+            print(f"\nEl usuario con ID {id_usuario} ha sido eliminado")
             break
         elif confirmacion == 'n': 
             print("\nOperación cancelada. El usuario no fue eliminado.")  

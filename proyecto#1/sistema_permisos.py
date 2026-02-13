@@ -4,12 +4,14 @@ from datetime import datetime
 def login(usuarios):
     print("\n INICIO DE SESIÓN\n")
 
-    id_usuario = input("Ingrese su ID: ")
-
-    if id_usuario not in usuarios:
-        print("Usuario no encontrado.")
-        registrar_evento("WARNING", f"Intento de login con ID inexistente: {id_usuario}")
-        return
+    while True:
+        id_usuario = input("Ingrese su ID: ")
+        if id_usuario not in usuarios:
+            print("Usuario no encontrado.")
+            print("Intente nuevamente.")
+            registrar_evento("WARNING", f"Intento de login con ID inexistente: {id_usuario}")
+        else:
+            break
 
     tipo = usuarios[id_usuario]["Tipo"]
 
