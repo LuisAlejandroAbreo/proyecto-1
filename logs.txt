@@ -33,3 +33,6 @@
 [2026-02-13 09:20:51] [WARNING] Intento de login con ID inexistente: 4343434
 [2026-02-13 09:20:56] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
 [2026-02-13 09:21:11] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:28:56] [WARNING] Intento de login con ID inexistente: 343
+[2026-02-14 23:29:03] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:29:37] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
