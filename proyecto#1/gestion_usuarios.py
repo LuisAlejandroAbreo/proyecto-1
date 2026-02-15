@@ -1,6 +1,6 @@
 from gestion_datos_usuarios import guardar_datos1
 
-def validar_id():
+def validar_id(datos1):
     while True:
         id_vecino = input("Ingrese el ID del usuario: ").strip()
         
@@ -9,7 +9,8 @@ def validar_id():
         
         elif not id_vecino.isdigit():
             print("Error: El ID solo debe contener números.")
-        
+        elif id_vecino not in datos1:
+            print("Error: Ese ID no existe.")
         else:
             return id_vecino
 
