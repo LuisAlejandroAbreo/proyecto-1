@@ -40,7 +40,7 @@ def validar_herra(herramientas):
         else:
             return id_herra
 
-def validar_cantidad():
+def validar_cantidad(id_herramienta, herramientas):
     while True:
         cantidad = input("Ingrese la cantidad que desea: ").strip()
         if not cantidad:
@@ -49,6 +49,8 @@ def validar_cantidad():
             print("Debe ser numérico.")
         elif int(cantidad) <=0:
             print("Debe ser mayor a 0")
+        elif int(cantidad) > herramientas[id_herramienta]["Cantidad"]:
+            print("Cantidad no disponible.")
         else:
             return int(cantidad)
 
@@ -145,11 +147,7 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
 
     id_herramienta = validar_herra(herramientas)
 
-    cantidad = validar_cantidad()
-
-    if herramientas[id_herramienta]["Cantidad"] < int(cantidad):
-        print("No hay suficiente stock disponible.")
-        return
+    cantidad = validar_cantidad(id_herramienta, herramientas)
 
     fecha_inicio = validar_fecha("Fecha inicio (YYYY-MM-DD): ")
     fecha_dev = validar_fecha2("Fecha estimada devolución (YYYY-MM-DD): ", fecha_inicio)
