@@ -99,7 +99,7 @@ def agregar_herramientas(datos) :
     categoria_herramienta = validar_texto("Ingrese categoria de la herramienta: ")
     cant_disp_herramienta = validar_entero_positivo("Ingrese la cantidad disponible: ")
     estado_herramienta = validar_estado()
-    valor_est_herramienta = validar_decimal_positivo("Ingrese el valor estimado: ")
+    valor_est_herramienta = validar_decimal_positivo("Ingrese el valor estimado en $: ")
 
     datos[id_herramienta] = {
         "Nombre": nombre_herramienta,
@@ -120,8 +120,6 @@ def listar_herramientas(datos):
 
     print("\n\n2. Listado de Herramientas\n\n")    
     for id_herramientas, keys  in datos.items():
-        if keys["Estado"] == "Inactiva":
-            continue
         print(f"\nHerramienta con ID: {id_herramientas}")
         for key, valor in keys.items():
             print(f"-{key} -> {valor}")

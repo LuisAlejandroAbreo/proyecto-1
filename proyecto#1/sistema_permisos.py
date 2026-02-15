@@ -1,5 +1,16 @@
 from registro_logs import registrar_evento
 from datetime import datetime
+from solicitudes_prestamos import guardar_datos_prestamo
+from gestion_datos_prestamos import guardar_datos2
+from gestion_datos_herramientas import guardar_datos
+
+def validar_cantidad(mensaje):
+    while True:
+        valor = input(mensaje)
+        if valor.isdigit() and int(valor) > 0:
+            return int(valor)
+        else:
+            print("Error: Debe ingresar un número entero positivo.")
 
 def login(usuarios):
     print("\n INICIO DE SESIÓN\n")
@@ -22,13 +33,18 @@ def login(usuarios):
     return id_usuario
 
 def consultar_herramientas(herramientas, prestamos):
-    print("\n ESTADO DE HERRAMIENTAS\n")
+    print("\nESTADO DE LAS HERRAMIENTAS\n")
+
 
     for id_h, datos in herramientas.items():
+        if datos["Estado"] == "Inactiva":
+            continue
         print(f"\nID: {id_h}")
         print(f"Nombre: {datos['Nombre']}")
+        print(f"Categoria: {datos['Categoria']}")
         print(f"Cantidad disponible: {datos['Cantidad']}")
         print(f"Estado: {datos['Estado']}")
+        print(f"Valor: ${datos['Valor']:,.2f}")
 
         for p in prestamos.values():
             if p["Herramienta"] == id_h and p["Estado"] == "Activo":
@@ -45,8 +61,15 @@ def solicitar_herramienta(id_usuario, solicitudes, herramientas):
     if id_herramienta not in herramientas:
         print("Herramienta no existe.")
         return
-
-    cantidad = int(input("Cantidad solicitada: "))
+    if herramientas[id_herramienta]["Estado"] == "Inactiva":
+        print("Herramienta no disponible para préstamo.")
+        return
+    while True:
+        cantidad = validar_cantidad("Cantidad solicitada: ")
+        if cantidad > herramientas[id_herramienta]["Cantidad"]:
+            print("Cantidad solicitada excede el stock disponible.")
+        else:
+            break
 
     id_solicitud = str(len(solicitudes) + 1)
 
@@ -64,6 +87,7 @@ def solicitar_herramienta(id_usuario, solicitudes, herramientas):
     )
 
     print("Solicitud enviada al administrador.")
+    guardar_datos_prestamo(solicitudes)
 
 
 def aprobar_solicitudes(solicitudes, herramientas, prestamos):
@@ -121,3 +145,5 @@ def aprobar_solicitudes(solicitudes, herramientas, prestamos):
                     f"Solicitud rechazada por administrador. ID solicitud: {id_s}"
                 )
                 print("Solicitud rechazada.")
+    guardar_datos_prestamo(solicitudes)
+    guardar_datos(herramientas)

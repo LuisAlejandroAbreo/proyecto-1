@@ -6,12 +6,13 @@ from gestion_herramientas import gestion_herramientas1
 from gestion_prestamos import gestion_prestamos
 from consultas_reportes import menu_consultas
 from sistema_permisos import login, consultar_herramientas, solicitar_herramienta, aprobar_solicitudes
+from solicitudes_prestamos import cargar_datos_prestamo
 
 def menu():
     datos = cargar_datos()
     datos1 = cargar_datos1()
     datos_prestamos = cargar_datos2()
-    solicitudes = {}
+    solicitudes = cargar_datos_prestamo()
 
     usuario_actual = login(datos1)
     if usuario_actual:
@@ -56,6 +57,7 @@ def menu():
             elif op_user == "2":
                 solicitar_herramienta(usuario_actual, solicitudes, datos)
             elif op_user == "3":
+                print("Salida del programa. Hasta luego!")
                 break     
             else:
                 print("Opción inválida. Intente de nuevo")

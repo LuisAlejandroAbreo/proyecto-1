@@ -19,20 +19,15 @@ def herramientas_stock_bajo(herramientas, limite=3):
 def prestamos_activos_vencidos(prestamos):
     print("\nPRÉSTAMOS ACTIVOS Y VENCIDOS\n")
 
-    hoy = datetime.now().date()
     encontrados = False
 
     for id_p, datos in prestamos.items():
         if datos["Estado"] == "Activo":
-            fecha_dev = datetime.strptime(datos["Fecha_devolucion"], "%Y-%m-%d").date()
-
-            estado_vencimiento = "VENCIDO" if fecha_dev < hoy else "Activo"
-
             print(f"\nPréstamo ID: {id_p}")
             print(f"Usuario: {datos['Usuario']}")
             print(f"Herramienta: {datos['Herramienta']}")
             print(f"Fecha devolución: {datos['Fecha_devolucion']}")
-            print(f"Estado: {estado_vencimiento}")
+            print(f"Estado: {datos['Estado']}")
             print("-" * 30)
 
             encontrados = True

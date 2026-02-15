@@ -36,3 +36,97 @@
 [2026-02-14 23:28:56] [WARNING] Intento de login con ID inexistente: 343
 [2026-02-14 23:29:03] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
 [2026-02-14 23:29:37] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:30:25] [WARNING] Intento de login con ID inexistente: 343
+[2026-02-14 23:30:26] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:31:35] [WARNING] Intento de login con ID inexistente: 22
+[2026-02-14 23:31:37] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:33:25] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 44, Herramienta: 1
+[2026-02-14 23:34:34] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:38:14] [WARNING] Intento de login con ID inexistente: 22
+[2026-02-14 23:38:16] [WARNING] Intento de login con ID inexistente: 33
+[2026-02-14 23:38:17] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:38:37] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 44, Herramienta: 3
+[2026-02-14 23:38:48] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:38:56] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:39:10] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 44, Herramienta: 22
+[2026-02-14 23:39:21] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:39:37] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:39:48] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 44, Herramienta: 22
+[2026-02-14 23:40:10] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:45:24] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:47:59] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:48:06] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:49:28] [WARNING] Intento de login con ID inexistente: & c:/Users/LENOVO/AppData/Local/Programs/Python/Python314/python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/registro_logs.py
+[2026-02-14 23:49:33] [WARNING] Intento de login con ID inexistente: & c:/Users/LENOVO/AppData/Local/Programs/Python/Python314/python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/sistema_permisos.py
+[2026-02-14 23:49:35] [WARNING] Intento de login con ID inexistente: & c:/Users/LENOVO/AppData/Local/Programs/Python/Python314/python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-14 23:49:43] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:51:36] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:52:31] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:52:49] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-14 23:56:21] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:57:03] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:57:51] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-14 23:59:54] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 00:00:41] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 00:06:47] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 00:06:53] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:07:08] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:12:37] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:13:13] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:14:12] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:14:31] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 44, Herramienta: 3
+[2026-02-15 00:30:43] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:31:49] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:33:42] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:36:49] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:37:30] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:38:00] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 44, Herramienta: 22
+[2026-02-15 00:38:46] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 00:39:03] [INFO] Solicitud aprobada. ID solicitud: 1, Generó préstamo: 8
+[2026-02-15 00:40:14] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 00:41:11] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 00:43:32] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 00:45:47] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 01:01:33] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:01:44] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:04:43] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 01:05:08] [INFO] Solicitud creada. ID solicitud: 2, Usuario: 44, Herramienta: 1
+[2026-02-15 01:05:18] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:05:21] [INFO] Solicitud aprobada. ID solicitud: 2, Generó préstamo: 8
+[2026-02-15 01:09:29] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:09:46] [INFO] Solicitud aprobada. ID solicitud: 2, Generó préstamo: 9
+[2026-02-15 01:15:24] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:15:27] [INFO] Solicitud aprobada. ID solicitud: 2, Generó préstamo: 3
+[2026-02-15 01:16:40] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:16:42] [INFO] Solicitud aprobada. ID solicitud: 2, Generó préstamo: 3
+[2026-02-15 01:20:19] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 01:22:51] [INFO] Solicitud creada. ID solicitud: 3, Usuario: 44, Herramienta: 3
+[2026-02-15 01:23:01] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:23:37] [INFO] Solicitud aprobada. ID solicitud: 2, Generó préstamo: 4
+[2026-02-15 01:23:43] [INFO] Solicitud aprobada. ID solicitud: 3, Generó préstamo: 5
+[2026-02-15 01:27:22] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:27:39] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 01:28:50] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 01:30:14] [INFO] Inicio de sesión. Usuario: 44, Tipo: Residente
+[2026-02-15 01:31:58] [INFO] Solicitud creada. ID solicitud: 4, Usuario: 44, Herramienta: 22
+[2026-02-15 01:32:14] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:32:28] [INFO] Solicitud aprobada. ID solicitud: 4, Generó préstamo: 6
+[2026-02-15 01:33:03] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:34:36] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:38:14] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:40:35] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:41:22] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:48:14] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:50:29] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:53:11] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:54:45] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 01:57:04] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 1, Herramienta: 1
+[2026-02-15 01:57:26] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 01:57:36] [INFO] Solicitud aprobada. ID solicitud: 1, Generó préstamo: 2
+[2026-02-15 01:58:12] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 01:59:06] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 02:00:08] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 02:02:55] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 02:03:23] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:10:20] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:10:27] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
