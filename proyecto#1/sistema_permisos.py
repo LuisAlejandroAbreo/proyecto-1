@@ -61,9 +61,18 @@ def solicitar_herramienta(id_usuario, solicitudes, herramientas):
     if id_herramienta not in herramientas:
         print("Herramienta no existe.")
         return
-    if herramientas[id_herramienta]["Estado"] == "Inactiva" or herramientas[id_herramienta]["Estado"] == "fuera de servicio" or herramientas[id_herramienta]["Estado"] == "reparacion":
+    if herramientas[id_herramienta]["Estado"] == "Inactiva":
         print("Herramienta no disponible para préstamo.")
         return
+    if herramientas[id_herramienta]["Estado"] == "Reparacion":
+            print("Herramienta en reparación.")
+            return
+    if herramientas[id_herramienta]["Estado"] == "Fuera de servicio":
+            print("Herramienta fuera de servicio.")
+            return
+    if herramientas[id_herramienta]["Cantidad"] <= 0:
+            print("Herramienta sin stock disponible.")
+            return
     while True:
         cantidad = validar_cantidad("Cantidad solicitada: ")
         if cantidad > herramientas[id_herramienta]["Cantidad"]:

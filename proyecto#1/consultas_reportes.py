@@ -1,20 +1,21 @@
 from datetime import datetime
 
-def herramientas_stock_bajo(herramientas, limite=3):
+def herramientas_stock_bajo(herramientas):
     print("\nHERRAMIENTAS CON STOCK BAJO\n")
 
-    encontradas = False
+    encontrados = False
 
     for id_h, datos in herramientas.items():
-        if datos["Cantidad"] < limite and datos["Estado"] != "Inactiva":
+        if datos["Cantidad"] <= 3 and datos["Estado"] != "Inactiva":
             print(f"ID: {id_h}")
             print(f"Nombre: {datos['Nombre']}")
             print(f"Cantidad disponible: {datos['Cantidad']}")
             print("-" * 30)
-            encontradas = True
-
-    if not encontradas:
+            encontrados = True
+    if not encontrados:
         print("No hay herramientas con stock bajo.")
+                   
+    
 
 def prestamos_activos_vencidos(prestamos):
     print("\nPRÉSTAMOS ACTIVOS Y VENCIDOS\n")
