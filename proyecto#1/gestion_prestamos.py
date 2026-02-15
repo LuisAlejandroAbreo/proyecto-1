@@ -2,6 +2,50 @@ from datetime import datetime
 from gestion_datos_prestamos import guardar_datos2
 from gestion_datos_herramientas import guardar_datos
 
+def  validar_usuario(usuarios):
+    while True:
+        id_usuario = input("Ingrese el ID del usuario: ").strip()
+        
+        if not id_usuario:
+            print("Error: El ID no puede estar vacío.")
+        elif not id_usuario.isdigit():
+            print("Error: El ID solo debe contener números.")
+        elif id_usuario not in usuarios:
+                print("Usuario no existe.")    
+        else:
+            return id_usuario
+        
+def validar_herra(herramientas):       
+    while True:
+        id_herra = input("Digite ID de la herramienta: ").strip()
+
+        if not id_herra:
+            print("Error: El ID no puede estar vacío.")
+        elif not id_herra.isdigit():
+            print("Error: El ID solo debe contener números.") 
+        elif id_herra not in herramientas:
+            print("Esta herramienta no existe.")
+        elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Inactiva":
+            print("Error al cargar herramienta.")
+        elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Reparacion":
+            print("Herramienta en reparacion.")
+        elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Fuera de servicio":
+            print("Herramienta fuera de servicio.")
+        else:
+            return id_herra
+
+def validar_cantidad():
+    while True:
+        cantidad = input("Ingrese la cantidad que desea: ").strip()
+        if not cantidad:
+            print("No puede estar vacío.")
+        elif not cantidad.isdigit():
+            print("Debe ser numérico.")
+        elif int(cantidad) <=0:
+            print("Debe ser mayor a 0")
+        else:
+            return int(cantidad)
+
 def validar_id_prestamo(prestamos):
     while True:
         id_prestamo = input("Ingrese el ID del préstamo: ").strip()
@@ -10,9 +54,21 @@ def validar_id_prestamo(prestamos):
         elif not id_prestamo.isdigit():
             print("Debe ser numérico.")
         elif id_prestamo in prestamos:
-            print("Ese ID ya existe.")
+            print("El ID ya existe")
         else:
             return id_prestamo
+        
+def validar_id_prestamo2(prestamos):
+    while True:
+        id_prestamo2 = input("Ingrese el ID del préstamo: ").strip()
+        if not id_prestamo2:
+            print("No puede estar vacío.")
+        elif not id_prestamo2.isdigit():
+            print("Debe ser numérico.")
+        elif id_prestamo2 not in prestamos:
+            print("Préstamo no encontrado.")
+        else:
+            return id_prestamo2
 
 def validar_fecha(mensaje):
     while True:
@@ -36,10 +92,10 @@ def gestion_prestamos(herramientas, usuarios, prestamos):
         opcion = input("Seleccione opción: ")
 
         if opcion == "1":
-            registrar_prestamo(prestamos, herramientas, usuarios)
+            registrar_prestamo(herramientas, usuarios, prestamos)
 
         elif opcion == "2":
-            devolver_herramienta(prestamos, herramientas)
+            devolver_herramienta(herramientas, prestamos)
 
         elif opcion == "3":
             listar_prestamos(prestamos)
@@ -52,7 +108,7 @@ def gestion_prestamos(herramientas, usuarios, prestamos):
         else:
             print("Opción inválida")
 
-def registrar_prestamo(prestamos, herramientas, usuarios):
+def registrar_prestamo(herramientas, usuarios, prestamos):
 
     if not herramientas:
         print("No hay herramientas registradas.")
@@ -63,23 +119,14 @@ def registrar_prestamo(prestamos, herramientas, usuarios):
         return
 
     id_prestamo = validar_id_prestamo(prestamos)
+       
+    id_usuario = validar_usuario(usuarios)
 
-    id_usuario = input("Ingrese ID del usuario: ")
-    if id_usuario not in usuarios:
-        print("Usuario no existe.")
-        return
+    id_herramienta = validar_herra(herramientas)
 
-    id_herramienta = input("Ingrese ID de la herramienta: ")
-    if id_herramienta not in herramientas:
-        print("Herramienta no existe.")
-        return
-    if id_herramienta in herramientas and herramientas[id_herramienta]["Estado"] == "Inactiva":
-        print("Esta herramienta está inactiva.")
-        return
+    cantidad = validar_cantidad()
 
-    cantidad = int(input("Cantidad a prestar: "))
-
-    if herramientas[id_herramienta]["Cantidad"] < cantidad:
+    if herramientas[id_herramienta]["Cantidad"] < int(cantidad):
         print("No hay suficiente stock disponible.")
         return
 
@@ -88,12 +135,12 @@ def registrar_prestamo(prestamos, herramientas, usuarios):
 
     observaciones = input("Observaciones: ")
 
-    herramientas[id_herramienta]["Cantidad"] -= cantidad
+    herramientas[id_herramienta]["Cantidad"] -= int(cantidad)
 
     prestamos[id_prestamo] = {
         "Usuario": id_usuario,
         "Herramienta": id_herramienta,
-        "Cantidad": cantidad,
+        "Cantidad": int(cantidad),
         "Fecha_inicio": fecha_inicio,
         "Fecha_devolucion": fecha_dev,
         "Estado": "Activo",
@@ -104,13 +151,9 @@ def registrar_prestamo(prestamos, herramientas, usuarios):
 
     print("Préstamo registrado correctamente.")
 
-def devolver_herramienta(prestamos, herramientas):
+def devolver_herramienta(herramientas, prestamos):
 
-    id_prestamo = input("Ingrese ID del préstamo: ")
-
-    if id_prestamo not in prestamos:
-        print("Préstamo no encontrado.")
-        return
+    id_prestamo = validar_id_prestamo2(prestamos)
 
     if prestamos[id_prestamo]["Estado"] != "Activo":
         print("Este préstamo ya fue cerrado.")

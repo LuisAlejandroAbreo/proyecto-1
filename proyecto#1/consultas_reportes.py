@@ -1,5 +1,19 @@
 from datetime import datetime
 
+def validar_id(usuarios):
+    while True:
+        id_usuario = input("Ingrese el ID del usuario: ").strip()
+        
+        if not id_usuario:
+            print("Error: El ID no puede estar vacío.")
+        
+        elif not id_usuario.isdigit():
+            print("Error: El ID solo debe contener números.")
+        elif id_usuario not in usuarios:
+            print("Usuario no encontrado.")
+        else:
+            return id_usuario
+
 def herramientas_stock_bajo(herramientas):
     print("\nHERRAMIENTAS CON STOCK BAJO\n")
 
@@ -15,8 +29,6 @@ def herramientas_stock_bajo(herramientas):
     if not encontrados:
         print("No hay herramientas con stock bajo.")
                    
-    
-
 def prestamos_activos_vencidos(prestamos):
     print("\nPRÉSTAMOS ACTIVOS Y VENCIDOS\n")
 
@@ -36,14 +48,10 @@ def prestamos_activos_vencidos(prestamos):
     if not encontrados:
         print("No hay préstamos activos.")
 
-def historial_usuario(prestamos, usuarios):
+def historial_usuario(usuarios, prestamos):
     print("\nHISTORIAL DE PRÉSTAMOS POR USUARIO\n")
 
-    id_usuario = input("Ingrese ID del usuario: ")
-
-    if id_usuario not in usuarios:
-        print("Usuario no encontrado.")
-        return
+    id_usuario = validar_id(usuarios)
 
     encontrados = False
 
@@ -61,7 +69,7 @@ def historial_usuario(prestamos, usuarios):
     if not encontrados:
         print("Este usuario no tiene préstamos registrados.")
 
-def herramientas_mas_solicitadas(prestamos, herramientas):
+def herramientas_mas_solicitadas(herramientas, prestamos):
     print("\nHERRAMIENTAS MÁS SOLICITADAS\n")
 
     contador = {}
@@ -87,7 +95,7 @@ def herramientas_mas_solicitadas(prestamos, herramientas):
         print(f"Total solicitada: {total}")
         print("-" * 30)
 
-def usuarios_mas_activos(prestamos, usuarios):
+def usuarios_mas_activos(usuarios, prestamos):
     print("\n USUARIOS QUE MÁS HERRAMIENTAS SOLICITAN\n")
 
     contador = {}
@@ -135,11 +143,11 @@ def menu_consultas(herramientas, usuarios, prestamos):
         elif opcion == "2":
             prestamos_activos_vencidos(prestamos)
         elif opcion == "3":
-            historial_usuario(prestamos, usuarios)
+            historial_usuario(usuarios, prestamos)
         elif opcion == "4":
-            herramientas_mas_solicitadas(prestamos, herramientas)
+            herramientas_mas_solicitadas(herramientas, prestamos)
         elif opcion == "5":
-            usuarios_mas_activos(prestamos, usuarios)
+            usuarios_mas_activos(usuarios, prestamos)
         elif opcion == "6":
             break
         else:

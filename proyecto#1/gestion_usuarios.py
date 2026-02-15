@@ -13,6 +13,19 @@ def validar_id():
         else:
             return id_vecino
 
+def validar_usuario(datos1):
+    while True:
+        id_vecino = input("Ingrese el ID del usuario: ").strip()
+        
+        if not id_vecino:
+            print("Error: El ID no puede estar vacío.")
+        elif not id_vecino.isdigit():
+            print("Error: El ID solo debe contener números.")
+        elif id_vecino not in datos1:
+            print("Usuario no encontrado.")
+        else:
+            return id_vecino
+
 def validar_nombres(mensaje):
     while True:
         texto = input(mensaje).strip()
@@ -123,10 +136,7 @@ def buscar_usuario(datos1):
         return
     
     print("\n\n3. Busqueda de Usuarios\n\n")
-    id_usuario = validar_id()
-    if id_usuario not in datos1:
-            print("Usuario no encontrado.")
-            return
+    id_usuario = validar_id(datos1)
 
     producto = datos1[id_usuario]
     print(f"\nUsuario con ID: {id_usuario}")
@@ -140,10 +150,7 @@ def actualizar_usuario(datos1):
         return
     
     print("\n\n4. Actualizacion de Usuario\n\n")
-    id_usuario = validar_id()
-    if id_usuario not in datos1:
-            print("Usuario no encontrado.")
-            return
+    id_usuario = validar_id(datos1)
 
     print(f"Nombre ({datos1[id_usuario]['Nombre']}): ")
     nombre = validar_nombres("Ingrese el nuevo nombre: ")
@@ -175,11 +182,7 @@ def eliminar_usuario(datos1):
         return
     
     print("\n\n5. Eliminacion de Usuario\n\n")
-    id_usuario = validar_id()
-    
-    if id_usuario not in datos1:
-        print(f"No existe un usuario con el ID {id_usuario}")
-        return
+    id_usuario = validar_usuario(datos1)
     
     persona = datos1[id_usuario]
     print("\nUsuario a eliminar:")
