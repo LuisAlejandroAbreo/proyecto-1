@@ -24,6 +24,18 @@ def validar_cantidad(mensaje):
         else:
             print("Error: Debe ingresar un número entero positivo.")
 
+def validar_id_herramienta(mensaje, herramientas):
+    while True:
+        id_h = input(mensaje).strip()
+        if not id_h:
+            print("Error: El ID no puede estar vacío.")
+        elif not id_h.isdigit():
+            print("Error: El ID solo debe contener números.")
+        elif id_h not in herramientas:
+            print("Error: Ese ID de herramienta no existe.")
+        else:
+            return id_h
+
 def login(usuarios):
     print("\n INICIO DE SESIÓN\n")
 
@@ -68,11 +80,8 @@ def consultar_herramientas(herramientas, prestamos):
 def solicitar_herramienta(id_usuario, solicitudes, herramientas):
     print("\n SOLICITAR HERRAMIENTA\n")
 
-    id_herramienta = input("Ingrese ID herramienta: ")
-
-    if id_herramienta not in herramientas:
-        print("Herramienta no existe.")
-        return
+    id_herramienta = validar_id_herramienta("Ingrese el ID de la herramienta que desea solicitar: ", herramientas)
+    
     if herramientas[id_herramienta]["Estado"] == "Inactiva":
         print("Herramienta no disponible para préstamo.")
         return
