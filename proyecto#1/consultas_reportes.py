@@ -1,5 +1,11 @@
 from datetime import datetime
 
+def validar_fecha2(prestamos):
+    if datetime.strptime(prestamos["Fecha_devolucion"], "%Y-%m-%d") < datetime.now():
+        return "Vencido"
+    else:
+        return "Activo"
+
 def validar_id(usuarios):
     while True:
         id_usuario = input("Ingrese el ID del usuario: ").strip()
@@ -31,34 +37,46 @@ def herramientas_stock_bajo(herramientas):
                    
 def prestamos_activos_vencidos(prestamos):
     print("\nPRÉSTAMOS ACTIVOS Y VENCIDOS\n")
-
-    encontrados = False
-
+    
+    encontrados_activos = False
+    encontrados_vencidos = False
     for id_p, datos in prestamos.items():
-        if datos["Estado"] == "Activo":
-            print(f"\nPréstamo ID: {id_p}")
+        if datos["Estado"] == "Devuelto":
+            continue
+        elif datos["Estado"] == "Activo":
+            print(f"Préstamo ID: {id_p}")
             print(f"Usuario: {datos['Usuario']}")
             print(f"Herramienta: {datos['Herramienta']}")
+            print(f"Cantidad: {datos['Cantidad']}")
+            print(f"Fecha inicio: {datos['Fecha_inicio']}")
             print(f"Fecha devolución: {datos['Fecha_devolucion']}")
             print(f"Estado: {datos['Estado']}")
             print("-" * 30)
-
-            encontrados = True
-    for id_p, datos in prestamos.items():
-        if datos["Estado"] == "Activo" and datetime.strptime(datos["Fecha_devolucion"], "%Y-%m-%d") < datetime.now():
-            print(f"\nPréstamo ID: {id_p}")
+            encontrados_activos = True
+        elif validar_fecha2(datos) == "Vencido":
+            print(f"Préstamo ID: {id_p}")
             print(f"Usuario: {datos['Usuario']}")
             print(f"Herramienta: {datos['Herramienta']}")
+            print(f"Cantidad: {datos['Cantidad']}")
+            print(f"Fecha inicio: {datos['Fecha_inicio']}")
             print(f"Fecha devolución: {datos['Fecha_devolucion']}")
-            print(f"Estado: Vencido")
+            print(f"Estado: {validar_fecha2(datos)}")
             print("-" * 30)
+            encontrados_vencidos = True
 
-            encontrados = True
-    if not encontrados:
-        print("No hay préstamos activos.")
+    if not encontrados_activos and not encontrados_vencidos:
+        print("No hay préstamos activos ni vencidos.")
 
 def historial_usuario(usuarios, prestamos):
     print("\nHISTORIAL DE PRÉSTAMOS POR USUARIO\n")
+
+    if not usuarios:
+        print("No hay usuarios registrados.")
+        return
+    
+    if not prestamos:
+        print("No hay préstamos registrados.")
+        return
 
     id_usuario = validar_id(usuarios)
 

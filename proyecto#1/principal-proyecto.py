@@ -20,7 +20,7 @@ def menu():
     if tipo == "Administrador":
         while True:
             print("""
-1. Aprobar solicitudes
+1. Aprobaaaaar solicitudes
 2. Gestión de herramientas
 3. Gestión de usuarios
 4. Gestión de préstamos

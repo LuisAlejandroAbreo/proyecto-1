@@ -1,6 +1,12 @@
 from datetime import datetime
 from gestion_datos_prestamos import guardar_datos2
 from gestion_datos_herramientas import guardar_datos
+   
+def validar_Estado(fecha_dev):
+    if datetime.strptime(fecha_dev, "%Y-%m-%d") < datetime.now():
+        return "Vencido"
+    else:
+        return "Activo"
 
 def  validar_usuario(usuarios):
     while True:
@@ -82,13 +88,13 @@ def validar_fecha(mensaje):
         except ValueError:
             print("Formato inválido. Use YYYY-MM-DD")
 
-def validar_fecha2(mensaje):
+def validar_fecha2(mensaje, fecha_inicio):
     while True:
         fecha = input(mensaje)
         try:
             datetime.strptime(fecha, "%Y-%m-%d")
-            if datetime.strptime(fecha, "%Y-%m-%d") < datetime.now():
-                print("Error: La fecha de devolución no puede ser anterior a la fecha actual.")
+            if datetime.strptime(fecha, "%Y-%m-%d") <= datetime.strptime(fecha_inicio, "%Y-%m-%d"):
+                print("Error: La fecha de devolución no puede ser anterior o igual a la fecha de inicio.")
             else:
                 return fecha
         except ValueError:
@@ -146,8 +152,8 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
         return
 
     fecha_inicio = validar_fecha("Fecha inicio (YYYY-MM-DD): ")
-    fecha_dev = validar_fecha2("Fecha estimada devolución (YYYY-MM-DD): ")
-
+    fecha_dev = validar_fecha2("Fecha estimada devolución (YYYY-MM-DD): ", fecha_inicio)
+    estado = validar_Estado(fecha_dev)
     observaciones = input("Observaciones: ")
 
     herramientas[id_herramienta]["Cantidad"] -= int(cantidad)
@@ -158,7 +164,7 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
         "Cantidad": int(cantidad),
         "Fecha_inicio": fecha_inicio,
         "Fecha_devolucion": fecha_dev,
-        "Estado": "Activo",
+        "Estado": estado,
         "Observaciones": observaciones
     }
     guardar_datos(herramientas)
@@ -168,10 +174,17 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
 
 def devolver_herramienta(herramientas, prestamos):
 
+    if not prestamos:
+        print("No hay préstamos registrados.")
+        return
+
     id_prestamo = validar_id_prestamo2(prestamos)
 
-    if prestamos[id_prestamo]["Estado"] != "Activo":
+    if prestamos[id_prestamo]["Estado"] == "Devuelto":
         print("Este préstamo ya fue cerrado.")
+        return
+    if prestamos[id_prestamo]["Estado"] == "Vencido":
+        print("Este préstamo está vencido. Por favor, contacte al administrador.")
         return
 
     id_herramienta = prestamos[id_prestamo]["Herramienta"]
