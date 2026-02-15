@@ -4,6 +4,18 @@ from solicitudes_prestamos import guardar_datos_prestamo
 from gestion_datos_prestamos import guardar_datos2
 from gestion_datos_herramientas import guardar_datos
 
+def fecha_Devolucion_estimada():
+    while True:
+        fecha_dev = input("Fecha estimada devolución (YYYY-MM-DD): ")
+        try:
+            datetime.strptime(fecha_dev, "%Y-%m-%d")
+            if datetime.strptime(fecha_dev, "%Y-%m-%d") < datetime.now():
+                print("Error: La fecha de devolución no puede ser anterior a la fecha actual.")
+            else:
+                return fecha_dev
+        except ValueError:
+            print("Error: Formato de fecha inválido. Use YYYY-MM-DD.")
+
 def validar_cantidad(mensaje):
     while True:
         valor = input(mensaje)
@@ -126,7 +138,7 @@ def aprobar_solicitudes(solicitudes, herramientas, prestamos):
                         "Herramienta": id_h,
                         "Cantidad": cantidad,
                         "Fecha_inicio": datetime.now().strftime("%Y-%m-%d"),
-                        "Fecha_devolucion": "Pendiente",
+                        "Fecha_devolucion": fecha_Devolucion_estimada(),
                         "Estado": "Activo",
                         "Observaciones": "Aprobado por administrador"
                     }

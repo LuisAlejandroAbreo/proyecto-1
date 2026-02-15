@@ -44,7 +44,16 @@ def prestamos_activos_vencidos(prestamos):
             print("-" * 30)
 
             encontrados = True
+    for id_p, datos in prestamos.items():
+        if datos["Estado"] == "Activo" and datetime.strptime(datos["Fecha_devolucion"], "%Y-%m-%d") < datetime.now():
+            print(f"\nPréstamo ID: {id_p}")
+            print(f"Usuario: {datos['Usuario']}")
+            print(f"Herramienta: {datos['Herramienta']}")
+            print(f"Fecha devolución: {datos['Fecha_devolucion']}")
+            print(f"Estado: Vencido")
+            print("-" * 30)
 
+            encontrados = True
     if not encontrados:
         print("No hay préstamos activos.")
 

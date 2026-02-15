@@ -75,7 +75,22 @@ def validar_fecha(mensaje):
         fecha = input(mensaje)
         try:
             datetime.strptime(fecha, "%Y-%m-%d")
-            return fecha
+            if datetime.strptime(fecha, "%Y-%m-%d") > datetime.now():
+                print("Error: La fecha de inicio no puede ser posterior a la fecha actual.")
+            else:
+                return fecha
+        except ValueError:
+            print("Formato inválido. Use YYYY-MM-DD")
+
+def validar_fecha2(mensaje):
+    while True:
+        fecha = input(mensaje)
+        try:
+            datetime.strptime(fecha, "%Y-%m-%d")
+            if datetime.strptime(fecha, "%Y-%m-%d") < datetime.now():
+                print("Error: La fecha de devolución no puede ser anterior a la fecha actual.")
+            else:
+                return fecha
         except ValueError:
             print("Formato inválido. Use YYYY-MM-DD")
 
@@ -131,7 +146,7 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
         return
 
     fecha_inicio = validar_fecha("Fecha inicio (YYYY-MM-DD): ")
-    fecha_dev = validar_fecha("Fecha estimada devolución (YYYY-MM-DD): ")
+    fecha_dev = validar_fecha2("Fecha estimada devolución (YYYY-MM-DD): ")
 
     observaciones = input("Observaciones: ")
 
