@@ -61,7 +61,7 @@ def solicitar_herramienta(id_usuario, solicitudes, herramientas):
     if id_herramienta not in herramientas:
         print("Herramienta no existe.")
         return
-    if herramientas[id_herramienta]["Estado"] == "Inactiva":
+    if herramientas[id_herramienta]["Estado"] == "Inactiva" or herramientas[id_herramienta]["Estado"] == "fuera de servicio" or herramientas[id_herramienta]["Estado"] == "reparacion":
         print("Herramienta no disponible para préstamo.")
         return
     while True:

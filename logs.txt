@@ -130,3 +130,26 @@
 [2026-02-15 02:03:23] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
 [2026-02-15 02:10:20] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
 [2026-02-15 02:10:27] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 02:12:20] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 02:14:06] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:20:10] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:23:37] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:23:56] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:24:03] [INFO] Solicitud creada. ID solicitud: 2, Usuario: 1, Herramienta: 2
+[2026-02-15 02:25:15] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:25:31] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 02:25:33] [WARNING] Solicitud rechazada por administrador. ID solicitud: 2
+[2026-02-15 02:28:46] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:29:16] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:30:13] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:30:14] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:30:14] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:30:14] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:30:14] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:30:14] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:30:15] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:30:15] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:30:21] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:31:16] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 02:31:23] [WARNING] Intento de login con ID inexistente: & C:\Users\LENOVO\AppData\Local\Programs\Python\Python314\python.exe c:/Users/LENOVO/Documents/LAAC2026/proyecto-1/proyecto#1/principal-proyecto.py
+[2026-02-15 02:31:28] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
