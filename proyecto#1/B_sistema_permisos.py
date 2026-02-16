@@ -1,7 +1,6 @@
 from datetime import datetime
 from C_registro_logs import registrar_evento
 from C_solicitudes_prestamos import guardar_datos_prestamo
-from C_gestion_datos_prestamos import guardar_datos2
 from C_gestion_datos_herramientas import guardar_datos
 
 def fecha_Devolucion_estimada():
@@ -57,7 +56,7 @@ def validar_id_herramienta(mensaje, herramientas):
             return id_h
 
 def login(usuarios):
-    print("\nINICIO DE SESIÓN\n")
+    print("\nINICIO DE SESIÓN\n") 
 
     while True:
         id_usuario = input("Ingrese su ID: ")

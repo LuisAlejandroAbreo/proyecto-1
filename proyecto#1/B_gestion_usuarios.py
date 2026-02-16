@@ -140,7 +140,7 @@ def crear_usuario(datos1):
         "Tipo" : tipo_vecino
     }
 
-    print("\nVecino agregado correctamente")
+    print("\nUsuario agregado correctamente")
     registrar_evento(
                     "INFO",
                     f"ID {id_vecino} de usuario agregado correctamente"

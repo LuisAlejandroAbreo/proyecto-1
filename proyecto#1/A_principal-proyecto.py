@@ -2,17 +2,23 @@ from C_gestion_datos_herramientas import cargar_datos
 from C_gestion_datos_usuarios import cargar_datos1
 from C_gestion_datos_prestamos import cargar_datos2
 from C_solicitudes_prestamos import cargar_datos_prestamo
-from B_gestion_usuarios import gestion_usuarios1
 from B_gestion_herramientas import gestion_herramientas1
 from B_gestion_prestamos import gestion_prestamos
 from B_consultas_reportes import menu_consultas
 from B_sistema_permisos import login, consultar_herramientas, solicitar_herramienta, aprobar_solicitudes
+from B_gestion_usuarios import crear_usuario
+from B_gestion_usuarios import gestion_usuarios1
+
 
 def menu():
     datos = cargar_datos()
     datos1 = cargar_datos1()
     datos_prestamos = cargar_datos2()
     solicitudes = cargar_datos_prestamo()
+
+    if not datos1:
+        print("\nNo hay datos de usuarios. Por favor cree un usuario administrador provisional")
+        crear_usuario(datos1)
 
     usuario_actual = login(datos1)
     if usuario_actual:
