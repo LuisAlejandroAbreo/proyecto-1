@@ -346,3 +346,11 @@
 [2026-02-16 10:30:36] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
 [2026-02-16 10:30:57] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
 [2026-02-16 10:32:12] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:36:55] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:40:49] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:43:15] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-16 10:43:48] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:44:07] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-16 10:44:16] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 1, Herramienta: 1
+[2026-02-16 10:44:35] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:44:48] [INFO] Solicitud aprobada. ID solicitud: 1, Generó préstamo: 2

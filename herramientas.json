@@ -1,1 +1,1 @@
-{"2": {"Nombre": "Taladro", "Categoria": "Construccion", "Cantidad": 20, "Estado": "Activa", "Valor": 15000.0}, "3": {"Nombre": "Pala", "Categoria": "Construccion", "Cantidad": 20, "Estado": "Reparacion", "Valor": 8000.0}, "4": {"Nombre": "Podadora", "Categoria": "Jardineria", "Cantidad": 5, "Estado": "Fuera de servicio", "Valor": 20000.0}}
+{"1": {"Nombre": "Martillo", "Categoria": "Construccion", "Cantidad": 0, "Estado": "Activa", "Valor": 10000.0}}
