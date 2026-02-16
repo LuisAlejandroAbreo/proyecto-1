@@ -1,4 +1,4 @@
-from gestion_datos_usuarios import guardar_datos1
+from C_gestion_datos_usuarios import guardar_datos1
 
 def validar_id(datos1):
     while True:
@@ -22,8 +22,6 @@ def validar_usuario(datos1):
             print("Error: El ID no puede estar vacío.")
         elif not id_vecino.isdigit():
             print("Error: El ID solo debe contener números.")
-        elif id_vecino not in datos1:
-            print("Usuario no encontrado.")
         else:
             return id_vecino
 
@@ -99,10 +97,7 @@ def gestion_usuarios1(datos1):
 
 def crear_usuario(datos1):
     print("\n\n1. Digitizacion de Usuario\n\n")
-    id_vecino = validar_id()
-    if id_vecino in datos1:
-            print("Error: Ese ID ya existe.")
-            return
+    id_vecino = validar_usuario(datos1)
     nombre_vecino = validar_nombres("Ingrese el nombre del usuario: ")
     apellido_vecino = validar_nombres("Ingrese el apellido del usuario: ")
     telefono_vecino = validar_tel("Ingrese el telefono del usuario: ")
@@ -183,7 +178,7 @@ def eliminar_usuario(datos1):
         return
     
     print("\n\n5. Eliminacion de Usuario\n\n")
-    id_usuario = validar_usuario(datos1)
+    id_usuario = validar_id(datos1)
     
     persona = datos1[id_usuario]
     print("\nUsuario a eliminar:")

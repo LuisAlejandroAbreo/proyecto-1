@@ -1,8 +1,8 @@
-from registro_logs import registrar_evento
 from datetime import datetime
-from solicitudes_prestamos import guardar_datos_prestamo
-from gestion_datos_prestamos import guardar_datos2
-from gestion_datos_herramientas import guardar_datos
+from C_registro_logs import registrar_evento
+from C_solicitudes_prestamos import guardar_datos_prestamo
+from C_gestion_datos_prestamos import guardar_datos2
+from C_gestion_datos_herramientas import guardar_datos
 
 def fecha_Devolucion_estimada():
     while True:

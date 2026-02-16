@@ -1,12 +1,12 @@
-from gestion_datos_herramientas import cargar_datos
-from gestion_datos_usuarios import cargar_datos1
-from gestion_datos_prestamos import cargar_datos2
-from gestion_usuarios import gestion_usuarios1
-from gestion_herramientas import gestion_herramientas1
-from gestion_prestamos import gestion_prestamos
-from consultas_reportes import menu_consultas
-from sistema_permisos import login, consultar_herramientas, solicitar_herramienta, aprobar_solicitudes
-from solicitudes_prestamos import cargar_datos_prestamo
+from C_gestion_datos_herramientas import cargar_datos
+from C_gestion_datos_usuarios import cargar_datos1
+from C_gestion_datos_prestamos import cargar_datos2
+from C_solicitudes_prestamos import cargar_datos_prestamo
+from B_gestion_usuarios import gestion_usuarios1
+from B_gestion_herramientas import gestion_herramientas1
+from B_gestion_prestamos import gestion_prestamos
+from B_consultas_reportes import menu_consultas
+from B_sistema_permisos import login, consultar_herramientas, solicitar_herramienta, aprobar_solicitudes
 
 def menu():
     datos = cargar_datos()

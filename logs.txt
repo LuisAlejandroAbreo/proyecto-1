@@ -309,3 +309,40 @@
 [2026-02-15 14:23:30] [INFO] Solicitud creada. ID solicitud: 3, Usuario: 1, Herramienta: 1
 [2026-02-15 14:24:39] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
 [2026-02-15 14:27:30] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 19:50:21] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 19:50:37] [WARNING] Solicitud rechazada por administrador. ID solicitud: 3
+[2026-02-15 19:50:58] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 19:51:04] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-15 19:56:29] [INFO] Solicitud creada. ID solicitud: 4, Usuario: 1, Herramienta: 1
+[2026-02-15 19:56:40] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-15 19:56:59] [INFO] Solicitud aprobada. ID solicitud: 4, Generó préstamo: 7
+[2026-02-16 08:58:12] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 08:58:32] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:05:23] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:26:01] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:29:27] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:31:43] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:34:42] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:36:26] [INFO] Inicio de sesión. Usuario: 1, Tipo: Residente
+[2026-02-16 09:36:44] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 1, Herramienta: 1
+[2026-02-16 09:37:01] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:37:09] [INFO] Solicitud aprobada. ID solicitud: 1, Generó préstamo: 2
+[2026-02-16 09:42:59] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:50:38] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:52:43] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:52:59] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:53:34] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 09:55:48] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:03:05] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:04:37] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:08:07] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:12:57] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:15:50] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:16:18] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:23:21] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:25:49] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:27:02] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:27:59] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:30:36] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:30:57] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 10:32:12] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador

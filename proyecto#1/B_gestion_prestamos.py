@@ -1,6 +1,6 @@
 from datetime import datetime
-from gestion_datos_prestamos import guardar_datos2
-from gestion_datos_herramientas import guardar_datos
+from C_gestion_datos_prestamos import guardar_datos2
+from C_gestion_datos_herramientas import guardar_datos
    
 def validar_Estado(fecha_dev):
     if datetime.strptime(fecha_dev, "%Y-%m-%d") < datetime.now():
@@ -184,11 +184,11 @@ def devolver_herramienta(herramientas, prestamos):
     if prestamos[id_prestamo]["Estado"] == "Vencido":
         print("Este préstamo está vencido. Por favor, contacte al administrador.")
         return
-
-    id_herramienta = prestamos[id_prestamo]["Herramienta"]
+    
+    id_herramientas = prestamos[id_prestamo]["Herramienta"]
     cantidad = prestamos[id_prestamo]["Cantidad"]
 
-    herramientas[id_herramienta]["Cantidad"] += cantidad
+    herramientas[id_herramientas]["Cantidad"] += cantidad
 
     prestamos[id_prestamo]["Estado"] = "Devuelto"
     guardar_datos(herramientas)
