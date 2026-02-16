@@ -179,7 +179,9 @@ def gestion_prestamos(herramientas, usuarios, prestamos):
 
     while True:
         print("""
-\nGESTIÓN DE PRÉSTAMOS\n
+==========================
+    GESTION DE PRESTAMOS
+==========================
 1. Registrar préstamo
 2. Devolver herramienta
 3. Listar préstamos
@@ -303,7 +305,7 @@ def listar_prestamos(prestamos):
         print(f"\nPréstamo ID: {id_prestamo}")
         for k, v in datos.items():
             print(f"{k}: {v}")
-        print("-" * 30)
+        print("-" * 50)
 
     registrar_evento(
                     "WARNING",

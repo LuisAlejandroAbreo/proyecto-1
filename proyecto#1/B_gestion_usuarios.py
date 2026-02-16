@@ -92,9 +92,11 @@ def validar_tipo():
 
 def gestion_usuarios1(datos1):
 
-    print("\nGESTION DE USUARIOS")
     while True:
         print("""
+=============================================
+            GESTION DE USUARIOS
+=============================================
 1. Agregar usuario
 2. Listar usuarios
 3. Buscar usuario
@@ -174,7 +176,7 @@ def buscar_usuario(datos1):
     print(f"\nUsuario con ID: {id_usuario}")
     for key, valor in producto.items():
         print(f"-{key} -> {valor}")
-    print(f"{'-'*30}\n")
+    print(f"{'-'*50}\n")
     registrar_evento(
                     "INFO",
                     f"Busqueda de usuario consultado"

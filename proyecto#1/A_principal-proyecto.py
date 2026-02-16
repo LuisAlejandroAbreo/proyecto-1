@@ -26,6 +26,9 @@ def menu():
     if tipo == "Administrador":
         while True:
             print("""
+===========================
+     MENU ADMINISTRADOR
+===========================                 
 1. Aprobar solicitudes
 2. Gestión de herramientas
 3. Gestión de usuarios
@@ -53,9 +56,12 @@ def menu():
     if tipo == "Residente":
         while True:
             print("""
+===========================
+      MENU RESIDENTE
+===========================  
 1. Consultar herramientas
 2. Solicitar herramienta
-3. Salir del programa""")
+3. Salir del programa\n""")
             op_user = input("Seleccione opción: ")
 
             if op_user == "1":

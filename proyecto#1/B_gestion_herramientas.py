@@ -100,9 +100,11 @@ def validar_estado():
 
 def gestion_herramientas1(datos):
 
-    print("\nGESTION DE HERRAMIENTAS")
     while True:
         print("""
+===============================================
+            GESTION DE HERRAMIENTAS
+===============================================
 1. Agregar herramienta
 2. Listar herramientas
 3. Buscar herramienta
@@ -169,7 +171,7 @@ def listar_herramientas(datos):
         print(f"\nHerramienta con ID: {id_herramientas}")
         for key, valor in keys.items():
             print(f"-{key} -> {valor}")
-        print(f"{'-'*30}\n")
+        print(f"{'-'*50}\n")
         registrar_evento(
                     "INFO",
                     f"Listado de herramientas solicitado"
@@ -188,7 +190,7 @@ def buscar_herramienta(datos):
     print(f"\nHerramienta con ID: {id_herra}")
     for key, valor in producto.items():
         print(f"-{key} -> {valor}")
-    print(f"{'-'*30}\n")
+    print(f"{'-'*50}\n")
     registrar_evento(
                     "INFO",
                     f"Búsqueda de herramientas solicitada"

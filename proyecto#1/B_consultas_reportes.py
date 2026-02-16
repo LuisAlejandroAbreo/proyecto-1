@@ -38,7 +38,7 @@ def herramientas_stock_bajo(herramientas):
             print(f"ID: {id_h}")
             print(f"Nombre: {datos['Nombre']}")
             print(f"Cantidad disponible: {datos['Cantidad']}")
-            print("-" * 30)
+            print("-" * 50)
             encontrados = True
     registrar_evento(
                     "INFO",
@@ -63,7 +63,7 @@ def prestamos_activos_vencidos(prestamos):
             print(f"Fecha inicio: {datos['Fecha_inicio']}")
             print(f"Fecha devolución: {datos['Fecha_devolucion']}")
             print(f"Estado: {datos['Estado']}")
-            print("-" * 30)
+            print("-" * 50)
             encontrados_activos = True
         elif validar_fecha2(datos) == "Vencido":
             print(f"Préstamo ID: {id_p}")
@@ -73,7 +73,7 @@ def prestamos_activos_vencidos(prestamos):
             print(f"Fecha inicio: {datos['Fecha_inicio']}")
             print(f"Fecha devolución: {datos['Fecha_devolucion']}")
             print(f"Estado: {validar_fecha2(datos)}")
-            print("-" * 30)
+            print("-" * 50)
             encontrados_vencidos = True
     registrar_evento(
                     "INFO",
@@ -106,7 +106,7 @@ def historial_usuario(usuarios, prestamos):
             print(f"Fecha inicio: {datos['Fecha_inicio']}")
             print(f"Fecha devolución: {datos['Fecha_devolucion']}")
             print(f"Estado: {datos['Estado']}")
-            print("-" * 30)
+            print("-" * 50)
             encontrados = True
     registrar_evento(
                     "INFO",
@@ -140,7 +140,7 @@ def herramientas_mas_solicitadas(herramientas, prestamos):
         nombre = herramientas[id_h]["Nombre"] if id_h in herramientas else "Desconocida"
         print(f"Herramienta: {nombre} (ID: {id_h})")
         print(f"Total solicitada: {total}")
-        print("-" * 30)
+        print("-" * 50)
         registrar_evento(
                     "INFO",
                     f"Historial de herramientas mas solicitadas consultado"
@@ -170,7 +170,7 @@ def usuarios_mas_activos(usuarios, prestamos):
         nombre = usuarios[id_u]["Nombre"] if id_u in usuarios else "Desconocido"
         print(f"Usuario: {nombre} (ID: {id_u})")
         print(f"Total herramientas solicitadas: {total}")
-        print("-" * 30)
+        print("-" * 50)
         registrar_evento(
                     "INFO",
                     f"Historial de usuarios con mas herramientas solicitadas consultado"
@@ -180,8 +180,9 @@ def menu_consultas(herramientas, usuarios, prestamos):
 
     while True:
         print("""
-CONSULTAS Y REPORTES
-
+===============================================
+            CONSULTAS Y REPORTES
+===============================================
 1. Herramientas con stock bajo
 2. Préstamos activos y vencidos
 3. Historial de préstamos por usuario

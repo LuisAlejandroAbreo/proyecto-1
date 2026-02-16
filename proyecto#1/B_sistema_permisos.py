@@ -94,7 +94,7 @@ def consultar_herramientas(herramientas, prestamos):
                 print(f"Prestada a Usuario ID: {p['Usuario']}")
                 print(f"Fecha devolución estimada: {p['Fecha_devolucion']}")
 
-        print("-" * 30)
+        print("-" * 50)
 
 def solicitar_herramienta(id_usuario, solicitudes, herramientas):
     print("\nSOLICITAR HERRAMIENTA\n")
