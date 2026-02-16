@@ -354,3 +354,7 @@
 [2026-02-16 10:44:16] [INFO] Solicitud creada. ID solicitud: 1, Usuario: 1, Herramienta: 1
 [2026-02-16 10:44:35] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
 [2026-02-16 10:44:48] [INFO] Solicitud aprobada. ID solicitud: 1, Generó préstamo: 2
+[2026-02-16 13:52:07] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 13:56:43] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 13:59:29] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador
+[2026-02-16 14:03:38] [INFO] Inicio de sesión. Usuario: 434, Tipo: Administrador

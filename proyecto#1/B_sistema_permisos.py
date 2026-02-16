@@ -37,7 +37,7 @@ def validar_id_herramienta(mensaje, herramientas):
             return id_h
 
 def login(usuarios):
-    print("\n INICIO DE SESIÓN\n")
+    print("\nINICIO DE SESIÓN\n")
 
     while True:
         id_usuario = input("Ingrese su ID: ")
@@ -78,7 +78,7 @@ def consultar_herramientas(herramientas, prestamos):
         print("-" * 30)
 
 def solicitar_herramienta(id_usuario, solicitudes, herramientas):
-    print("\n SOLICITAR HERRAMIENTA\n")
+    print("\nSOLICITAR HERRAMIENTA\n")
 
     id_herramienta = validar_id_herramienta("Ingrese el ID de la herramienta que desea solicitar: ", herramientas)
     
@@ -121,7 +121,7 @@ def solicitar_herramienta(id_usuario, solicitudes, herramientas):
 
 
 def aprobar_solicitudes(solicitudes, herramientas, prestamos):
-    print("\n SOLICITUDES PENDIENTES\n")
+    print("\nSOLICITUDES PENDIENTES\n")
 
     for id_s, datos in solicitudes.items():
         if datos["Estado"] == "Pendiente":

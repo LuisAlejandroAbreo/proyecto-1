@@ -1,7 +1,7 @@
 from datetime import datetime
 from C_gestion_datos_prestamos import guardar_datos2
 from C_gestion_datos_herramientas import guardar_datos
-   
+
 def validar_Estado(fecha_dev):
     if datetime.strptime(fecha_dev, "%Y-%m-%d") < datetime.now():
         return "Vencido"
@@ -34,7 +34,7 @@ def validar_herra(herramientas):
         elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Inactiva":
             print("Error al cargar herramienta.")
         elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Reparacion":
-            print("Herramienta en reparacion.")
+            print("Herramienta en reparación.")
         elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Fuera de servicio":
             print("Herramienta fuera de servicio.")
         else:
@@ -106,6 +106,7 @@ def gestion_prestamos(herramientas, usuarios, prestamos):
 
     while True:
         print("""
+\nGESTIÓN DE PRÉSTAMOS\n
 1. Registrar préstamo
 2. Devolver herramienta
 3. Listar préstamos
@@ -133,6 +134,7 @@ def gestion_prestamos(herramientas, usuarios, prestamos):
 
 def registrar_prestamo(herramientas, usuarios, prestamos):
 
+
     if not herramientas:
         print("No hay herramientas registradas.")
         return
@@ -140,9 +142,11 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
     if not usuarios:
         print("No hay usuarios registrados.")
         return
+    
+    print("\nREGISTRO DE PRÉSTAMOS\n")
 
     id_prestamo = validar_id_prestamo(prestamos)
-       
+
     id_usuario = validar_usuario(usuarios)
 
     id_herramienta = validar_herra(herramientas)
@@ -160,8 +164,8 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
         "Usuario": id_usuario,
         "Herramienta": id_herramienta,
         "Cantidad": int(cantidad),
-        "Fecha_inicio": fecha_inicio,
-        "Fecha_devolucion": fecha_dev,
+        "Fecha de inicio": fecha_inicio,
+        "Fecha de devolución": fecha_dev,
         "Estado": estado,
         "Observaciones": observaciones
     }
@@ -175,6 +179,8 @@ def devolver_herramienta(herramientas, prestamos):
     if not prestamos:
         print("No hay préstamos registrados.")
         return
+    
+    print("\nDEVOLUCIÓN DE HERRAMIENTA\n")
 
     id_prestamo = validar_id_prestamo2(prestamos)
 
@@ -201,6 +207,8 @@ def listar_prestamos(prestamos):
     if not prestamos:
         print("No hay préstamos registrados.")
         return
+    
+    print("\nLISTADO DE PRÉSTAMOS\n")
 
     for id_prestamo, datos in prestamos.items():
         print(f"\nPréstamo ID: {id_prestamo}")

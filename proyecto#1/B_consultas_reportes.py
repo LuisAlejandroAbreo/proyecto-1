@@ -34,7 +34,7 @@ def herramientas_stock_bajo(herramientas):
             encontrados = True
     if not encontrados:
         print("No hay herramientas con stock bajo.")
-                   
+
 def prestamos_activos_vencidos(prestamos):
     print("\nPRÉSTAMOS ACTIVOS Y VENCIDOS\n")
     
@@ -152,7 +152,7 @@ def menu_consultas(herramientas, usuarios, prestamos):
 
     while True:
         print("""
- CONSULTAS Y REPORTES
+CONSULTAS Y REPORTES
 
 1. Herramientas con stock bajo
 2. Préstamos activos y vencidos
@@ -160,7 +160,7 @@ def menu_consultas(herramientas, usuarios, prestamos):
 4. Herramientas más solicitadas
 5. Usuarios que más herramientas han solicitado
 6. Volver al menú principal
---------------------------------
+------------------------------------------------
 """)
 
         opcion = input("Seleccione opción: ")

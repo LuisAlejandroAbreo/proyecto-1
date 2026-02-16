@@ -64,7 +64,7 @@ def validar_tipo():
 
 def gestion_usuarios1(datos1):
 
-    print("\nGESTION DE HERRAMIENTAS")
+    print("\nGESTION DE USUARIOS")
     while True:
         print("""
 1. Agregar usuario
@@ -73,7 +73,7 @@ def gestion_usuarios1(datos1):
 4. Actualizar usuario
 5. Eliminar usuario
 6. Gurdar datos y salir al menu principal
---------------------------------
+------------------------------------------
 """)
         opcion = input("Seleccione una opción: ")
 
@@ -96,7 +96,7 @@ def gestion_usuarios1(datos1):
         input("Presione cualquier tecla para continuar")
 
 def crear_usuario(datos1):
-    print("\n\n1. Digitizacion de Usuario\n\n")
+    print("\nDIGITACIÓN DE USUARIOS\n")
     id_vecino = validar_usuario(datos1)
     nombre_vecino = validar_nombres("Ingrese el nombre del usuario: ")
     apellido_vecino = validar_nombres("Ingrese el apellido del usuario: ")
@@ -119,7 +119,7 @@ def listar_usuarios(datos1):
         print("No hay usuarios registrados.")
         return
 
-    print("\n\n2. Listado de usuarios\n\n")    
+    print("\nLISTADO DE USUARIOS\n")    
     for id_usuario, keys  in datos1.items():
         print(f"\nUsuario con ID: {id_usuario}")
         for key, valor in keys.items():
@@ -128,10 +128,10 @@ def listar_usuarios(datos1):
 
 def buscar_usuario(datos1):
     if not datos1:
-        print("El inventario está vacío. No hay usuarios para buscar.")
+        print("El inventario está vacío. No hay usuarios registrados.")
         return
     
-    print("\n\n3. Busqueda de Usuarios\n\n")
+    print("\nBÚSQUEDA DE USUARIO\n")
     id_usuario = validar_id(datos1)
 
     producto = datos1[id_usuario]
@@ -145,7 +145,7 @@ def actualizar_usuario(datos1):
         print("El inventario está vacío. No hay usuarios para actualizar.")
         return
     
-    print("\n\n4. Actualizacion de Usuario\n\n")
+    print("\nACTUALIZACIÓN DE USUARIO\n")
     id_usuario = validar_id(datos1)
 
     print(f"Nombre ({datos1[id_usuario]['Nombre']}): ")
@@ -177,7 +177,7 @@ def eliminar_usuario(datos1):
         print("El inventario está vacío. No hay usuarios para eliminar.")
         return
     
-    print("\n\n5. Eliminacion de Usuario\n\n")
+    print("\nELIMINACIÓN DE USUARIO\n")
     id_usuario = validar_id(datos1)
     
     persona = datos1[id_usuario]
