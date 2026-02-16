@@ -1,4 +1,5 @@
 from C_gestion_datos_herramientas import guardar_datos
+from C_registro_logs import registrar_evento
 
 def validar_id(datos):
     while True:
@@ -8,8 +9,16 @@ def validar_id(datos):
             print("Error: El ID no puede estar vacío.")
         elif not id_herramienta.isdigit():
             print("Error: El ID solo debe contener números.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herramienta} no digitado en el formato adecuado"
+                )
         elif id_herramienta not in datos:
             print("Herramienta no encontrada.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herramienta} no registrada en el sistema"
+                )
         else:
             return id_herramienta
         
@@ -21,8 +30,16 @@ def validar_id2(datos):
             print("Error: El ID no puede estar vacío.")
         elif not id_herramienta.isdigit():
             print("Error: El ID solo debe contener números.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herramienta} no digitado en el formato adecuado"
+                )
         elif id_herramienta in datos:
             print("Error: Ese ID ya existe.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herramienta} no registrada en el sistema"
+                )
         else:
             return id_herramienta
 
@@ -33,6 +50,10 @@ def validar_entero_positivo(mensaje):
             return int(valor)
         else:
             print("Error: Debe ingresar un número entero positivo.")
+            registrar_evento(
+                    "WARNING",
+                    f"Valor {valor} no digitado correctamente"
+                )
 
 def validar_decimal_positivo(mensaje):
     while True:
@@ -43,6 +64,10 @@ def validar_decimal_positivo(mensaje):
                 return valor
             else:
                 print("Error: El valor debe ser positivo.")
+                registrar_evento(
+                    "WARNING",
+                    f"Valor {valor} no digitado correctamente"
+                )
         except ValueError:
             print("Error: Debe ingresar un número válido.")
 
@@ -53,6 +78,10 @@ def validar_texto(mensaje):
             return texto.title()
         else:
             print("Error: Solo se permiten letras y espacios.")
+            registrar_evento(
+                    "WARNING",
+                    f"Texto {texto} no digitado correctamente"
+                )
 
 def validar_estado():
     estados_validos = ["activa", "reparacion", "fuera de servicio"]
@@ -64,6 +93,10 @@ def validar_estado():
         else:
             print("Estado inválido. Opciones válidas:")
             print(", ".join(estados_validos))
+            registrar_evento(
+                    "WARNING",
+                    f"Estado de herramienta inválido"
+                )
 
 def gestion_herramientas1(datos):
 
@@ -120,6 +153,10 @@ def agregar_herramientas(datos) :
                 }
     
     print("\nHerramienta agregada correctamente")
+    registrar_evento(
+                    "INFO",
+                    f"Herramienta agregada al sistema: {id_herramienta}"
+                )
 
 def listar_herramientas(datos):
 
@@ -133,6 +170,10 @@ def listar_herramientas(datos):
         for key, valor in keys.items():
             print(f"-{key} -> {valor}")
         print(f"{'-'*30}\n")
+        registrar_evento(
+                    "INFO",
+                    f"Listado de herramientas solicitado"
+                )
 
 def buscar_herramienta(datos):
 
@@ -148,6 +189,10 @@ def buscar_herramienta(datos):
     for key, valor in producto.items():
         print(f"-{key} -> {valor}")
     print(f"{'-'*30}\n")
+    registrar_evento(
+                    "INFO",
+                    f"Búsqueda de herramientas solicitada"
+                )
 
 def actualizar_herramienta(datos):
 
@@ -181,6 +226,10 @@ def actualizar_herramienta(datos):
         datos[id_herra]["Valor"] = float(valor)
     
     print("Herramienta actualizada.")
+    registrar_evento(
+                    "INFO",
+                    f"Actualización de herramienta realizada. ID herramienta: {id_herra}"
+                )
 
 def eliminar_herramienta(datos):
 
@@ -205,12 +254,24 @@ def eliminar_herramienta(datos):
         if confirmacion == 's':
             del datos[id_herra]
             print(f"\nLa herramienta con ID {id_herra} ha sido eliminada")
+            registrar_evento(
+                    "INFO",
+                    f"Solicitud de eliminacion de herramienta aprobada por el usuario. ID herramienta: {id_herra}"
+                )
             break
         elif confirmacion == 'n': 
-            print("\nOperación cancelada. La herramienta no fue eliminada.")  
+            print("\nOperación cancelada. La herramienta no fue eliminada.")
+            registrar_evento(
+                    "INFO",
+                    f"Solicitud de eliminacion de herramienta cancelada por el usuario. ID herramienta: {id_herra}"
+                )
             break
         else:
             print("\nNo digito correctamente las opciones")
+            registrar_evento(
+                    "WARNING",
+                    f"Opción de eliminación no digitada correctamente"
+                )
 
 def inactivar_herramienta(datos):
 
@@ -222,7 +283,15 @@ def inactivar_herramienta(datos):
     id_herra = validar_id(datos)
     if datos[id_herra]["Estado"] == "Inactiva":
         print("La herramienta ya está inactiva.")
+        registrar_evento(
+                    "WARNING",
+                    f"Inactivacion de herramienta ya previamente inactiva rechazada. ID herramienta: {id_herra}"
+                )
         return
     else:
         datos[id_herra]["Estado"] = "Inactiva"
         print("Herramienta inactivada correctamente.")
+        registrar_evento(
+                    "INFO",
+                    f"Inactivación de herramienta realizada por el usuario. ID herramienta: {id_herra}"
+        )

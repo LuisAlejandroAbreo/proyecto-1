@@ -11,10 +11,18 @@ def fecha_Devolucion_estimada():
             datetime.strptime(fecha_dev, "%Y-%m-%d")
             if datetime.strptime(fecha_dev, "%Y-%m-%d") < datetime.now():
                 print("Error: La fecha de devolución no puede ser anterior a la fecha actual.")
+                registrar_evento(
+                    "WARNING",
+                    f"Fecha de devolucion {fecha_dev} inválida respecto a la fecha actual"
+                )
             else:
                 return fecha_dev
         except ValueError:
             print("Error: Formato de fecha inválido. Use YYYY-MM-DD.")
+            registrar_evento(
+                    "WARNING",
+                    f"Fecha de devolucion {fecha_dev} no digitada correctamente"
+                )
 
 def validar_cantidad(mensaje):
     while True:
@@ -23,6 +31,10 @@ def validar_cantidad(mensaje):
             return int(valor)
         else:
             print("Error: Debe ingresar un número entero positivo.")
+            registrar_evento(
+                    "WARNING",
+                    f"Cantidad {valor} no digitada correctamente"
+                )
 
 def validar_id_herramienta(mensaje, herramientas):
     while True:
@@ -31,8 +43,16 @@ def validar_id_herramienta(mensaje, herramientas):
             print("Error: El ID no puede estar vacío.")
         elif not id_h.isdigit():
             print("Error: El ID solo debe contener números.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_h} no digitado correctamente"
+                )
         elif id_h not in herramientas:
             print("Error: Ese ID de herramienta no existe.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_h} no registrado en el sistema"
+                )
         else:
             return id_h
 

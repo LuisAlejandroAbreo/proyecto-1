@@ -1,4 +1,5 @@
 from datetime import datetime
+from C_registro_logs import registrar_evento
 
 def validar_fecha2(prestamos):
     if datetime.strptime(prestamos["Fecha_devolucion"], "%Y-%m-%d") < datetime.now():
@@ -12,11 +13,18 @@ def validar_id(usuarios):
         
         if not id_usuario:
             print("Error: El ID no puede estar vacío.")
-        
         elif not id_usuario.isdigit():
             print("Error: El ID solo debe contener números.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_usuario} no digitado en el formato adecuado"
+                )
         elif id_usuario not in usuarios:
             print("Usuario no encontrado.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_usuario} no registrado en el sistema"
+                )
         else:
             return id_usuario
 
@@ -32,6 +40,10 @@ def herramientas_stock_bajo(herramientas):
             print(f"Cantidad disponible: {datos['Cantidad']}")
             print("-" * 30)
             encontrados = True
+    registrar_evento(
+                    "INFO",
+                    f"Herramientas con bajo stock consultado"
+                )
     if not encontrados:
         print("No hay herramientas con stock bajo.")
 
@@ -63,6 +75,10 @@ def prestamos_activos_vencidos(prestamos):
             print(f"Estado: {validar_fecha2(datos)}")
             print("-" * 30)
             encontrados_vencidos = True
+    registrar_evento(
+                    "INFO",
+                    f"Prestamos activos y vencidos consultados"
+                )
 
     if not encontrados_activos and not encontrados_vencidos:
         print("No hay préstamos activos ni vencidos.")
@@ -92,6 +108,10 @@ def historial_usuario(usuarios, prestamos):
             print(f"Estado: {datos['Estado']}")
             print("-" * 30)
             encontrados = True
+    registrar_evento(
+                    "INFO",
+                    f"Historial de prestamos por usuario consultados"
+                )
 
     if not encontrados:
         print("Este usuario no tiene préstamos registrados.")
@@ -121,9 +141,13 @@ def herramientas_mas_solicitadas(herramientas, prestamos):
         print(f"Herramienta: {nombre} (ID: {id_h})")
         print(f"Total solicitada: {total}")
         print("-" * 30)
+        registrar_evento(
+                    "INFO",
+                    f"Historial de herramientas mas solicitadas consultado"
+                )
 
 def usuarios_mas_activos(usuarios, prestamos):
-    print("\n USUARIOS QUE MÁS HERRAMIENTAS SOLICITAN\n")
+    print("\nUSUARIOS QUE MÁS HERRAMIENTAS SOLICITAN\n")
 
     contador = {}
 
@@ -147,6 +171,10 @@ def usuarios_mas_activos(usuarios, prestamos):
         print(f"Usuario: {nombre} (ID: {id_u})")
         print(f"Total herramientas solicitadas: {total}")
         print("-" * 30)
+        registrar_evento(
+                    "INFO",
+                    f"Historial de usuarios con mas herramientas solicitadas consultado"
+                )
 
 def menu_consultas(herramientas, usuarios, prestamos):
 

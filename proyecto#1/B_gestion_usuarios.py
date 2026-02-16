@@ -1,4 +1,5 @@
 from C_gestion_datos_usuarios import guardar_datos1
+from C_registro_logs import registrar_evento
 
 def validar_id(datos1):
     while True:
@@ -6,22 +7,34 @@ def validar_id(datos1):
         
         if not id_vecino:
             print("Error: El ID no puede estar vacío.")
-        
         elif not id_vecino.isdigit():
             print("Error: El ID solo debe contener números.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_vecino} no digitado correctamente"
+                )
         elif id_vecino not in datos1:
             print("Error: Ese ID no existe.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_vecino} no registrado en el sistema"
+                )
         else:
             return id_vecino
 
-def validar_usuario(datos1):
+def validar_usuario():
     while True:
         id_vecino = input("Ingrese el ID del usuario: ").strip()
         
         if not id_vecino:
             print("Error: El ID no puede estar vacío.")
+            
         elif not id_vecino.isdigit():
             print("Error: El ID solo debe contener números.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_vecino} no digitado correctamente"
+                )
         else:
             return id_vecino
 
@@ -32,7 +45,10 @@ def validar_nombres(mensaje):
             return texto.title()
         else:
             print("Error: Solo se permiten letras y espacios.")
-
+            registrar_evento(
+                    "WARNING",
+                    f"Texto {texto} no digitado correctamente"
+                )
 
 def validar_tel(mensaje):
     while True:
@@ -41,6 +57,10 @@ def validar_tel(mensaje):
             return int(valor)
         else:
             print("Error: Debe ingresar un número válido con 10 digitos.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {valor} no digitado correctamente"
+                )
 
 def validar_dire(mensaje):
     while True:
@@ -50,6 +70,10 @@ def validar_dire(mensaje):
             return direccion
         else:
             print("Dirección inválida. Debe contener # y -")
+            registrar_evento(
+                    "WARNING",
+                    f"Direccion {direccion} no digitado correctamente"
+                )
 
 def validar_tipo():
     estados_validos = ["residente", "administrador"]
@@ -61,6 +85,10 @@ def validar_tipo():
         else:
             print("Estado inválido. Opciones válidas:")
             print(", ".join(estados_validos))
+            registrar_evento(
+                    "WARNING",
+                    f"Estado {estado} no digitado correctamente"
+                )
 
 def gestion_usuarios1(datos1):
 
@@ -97,7 +125,7 @@ def gestion_usuarios1(datos1):
 
 def crear_usuario(datos1):
     print("\nDIGITACIÓN DE USUARIOS\n")
-    id_vecino = validar_usuario(datos1)
+    id_vecino = validar_usuario()
     nombre_vecino = validar_nombres("Ingrese el nombre del usuario: ")
     apellido_vecino = validar_nombres("Ingrese el apellido del usuario: ")
     telefono_vecino = validar_tel("Ingrese el telefono del usuario: ")
@@ -113,6 +141,10 @@ def crear_usuario(datos1):
     }
 
     print("\nVecino agregado correctamente")
+    registrar_evento(
+                    "INFO",
+                    f"ID {id_vecino} de usuario agregado correctamente"
+                )
 
 def listar_usuarios(datos1):
     if not datos1:
@@ -125,6 +157,10 @@ def listar_usuarios(datos1):
         for key, valor in keys.items():
             print(f"-{key} -> {valor}")
         print(f"{'-'*30}\n")
+    registrar_evento(
+                    "INFO",
+                    f"Listado de usuario consultado"
+                )
 
 def buscar_usuario(datos1):
     if not datos1:
@@ -139,6 +175,10 @@ def buscar_usuario(datos1):
     for key, valor in producto.items():
         print(f"-{key} -> {valor}")
     print(f"{'-'*30}\n")
+    registrar_evento(
+                    "INFO",
+                    f"Busqueda de usuario consultado"
+                )
 
 def actualizar_usuario(datos1):
     if not datos1:
@@ -171,6 +211,10 @@ def actualizar_usuario(datos1):
         datos1[id_usuario]["Tipo"] = tipo
     
     print("Usuario actualizado.")
+    registrar_evento(
+                    "INFO",
+                    f"ID {id_usuario} de usuario actualizado"
+                )
 
 def eliminar_usuario(datos1):
     if not datos1:
@@ -194,9 +238,24 @@ def eliminar_usuario(datos1):
         if confirmacion == 's':
             del datos1[id_usuario]
             print(f"\nEl usuario con ID {id_usuario} ha sido eliminado")
+            registrar_evento(
+                    "INFO",
+                    f"ID {id_usuario} de usuario eliminado"
+                )
+
             break
         elif confirmacion == 'n': 
-            print("\nOperación cancelada. El usuario no fue eliminado.")  
+            print("\nOperación cancelada. El usuario no fue eliminado.")
+            registrar_evento(
+                    "INFO",
+                    f"ID {id_usuario} de usuario no eliminado, por decision del administrador"
+                )
+
             break
         else:
             print("\nNo digito correctamente las opciones")
+            registrar_evento(
+                    "INFO",
+                    f"Opcion {confirmacion} de decision no digitada correctamente"
+                )
+

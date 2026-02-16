@@ -1,6 +1,7 @@
 from datetime import datetime
 from C_gestion_datos_prestamos import guardar_datos2
 from C_gestion_datos_herramientas import guardar_datos
+from C_registro_logs import registrar_evento
 
 def validar_Estado(fecha_dev):
     if datetime.strptime(fecha_dev, "%Y-%m-%d") < datetime.now():
@@ -16,8 +17,16 @@ def  validar_usuario(usuarios):
             print("Error: El ID no puede estar vacío.")
         elif not id_usuario.isdigit():
             print("Error: El ID solo debe contener números.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_usuario} no válido"
+                )
         elif id_usuario not in usuarios:
-                print("Usuario no existe.")    
+                print("Usuario no existe.")
+                registrar_evento(
+                    "WARNING",
+                    f"ID {id_usuario} no registrado en el sistema"
+                )    
         else:
             return id_usuario
         
@@ -28,15 +37,35 @@ def validar_herra(herramientas):
         if not id_herra:
             print("Error: El ID no puede estar vacío.")
         elif not id_herra.isdigit():
-            print("Error: El ID solo debe contener números.") 
+            print("Error: El ID solo debe contener números.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herra} no digitado correctamente"
+                ) 
         elif id_herra not in herramientas:
             print("Esta herramienta no existe.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herra} no registrado en el sistema"
+                )
         elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Inactiva":
             print("Error al cargar herramienta.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herra} no válido"
+                )
         elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Reparacion":
             print("Herramienta en reparación.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herra} no válido"
+                )
         elif id_herra in herramientas and herramientas[id_herra]["Estado"] == "Fuera de servicio":
             print("Herramienta fuera de servicio.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_herra} no válido"
+                )
         else:
             return id_herra
 
@@ -47,10 +76,22 @@ def validar_cantidad(id_herramienta, herramientas):
             print("No puede estar vacío.")
         elif not cantidad.isdigit():
             print("Debe ser numérico.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {cantidad} no digitado correctamente"
+                )
         elif int(cantidad) <=0:
             print("Debe ser mayor a 0")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {cantidad} no digitado correctamente"
+                )
         elif int(cantidad) > herramientas[id_herramienta]["Cantidad"]:
             print("Cantidad no disponible.")
+            registrar_evento(
+                    "WARNING",
+                    f"Cantidad de herramientas solicitadas, no disponibles en el stock"
+                )
         else:
             return int(cantidad)
 
@@ -61,8 +102,16 @@ def validar_id_prestamo(prestamos):
             print("No puede estar vacío.")
         elif not id_prestamo.isdigit():
             print("Debe ser numérico.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_prestamo} no digitado correctamente"
+                )
         elif id_prestamo in prestamos:
             print("El ID ya existe")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_prestamo} ya presente en el sistema"
+                )
         else:
             return id_prestamo
         
@@ -73,8 +122,16 @@ def validar_id_prestamo2(prestamos):
             print("No puede estar vacío.")
         elif not id_prestamo2.isdigit():
             print("Debe ser numérico.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_prestamo2} no digitado correctamente"
+                )
         elif id_prestamo2 not in prestamos:
             print("Préstamo no encontrado.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_prestamo2} no registrado en el sistema"
+                )
         else:
             return id_prestamo2
 
@@ -85,10 +142,18 @@ def validar_fecha(mensaje):
             datetime.strptime(fecha, "%Y-%m-%d")
             if datetime.strptime(fecha, "%Y-%m-%d") > datetime.now():
                 print("Error: La fecha de inicio no puede ser posterior a la fecha actual.")
+                registrar_evento(
+                    "WARNING",
+                    f"Fecha de iniciación de préstamo --{fecha}-- no digitada correctamente"
+                )
             else:
                 return fecha
         except ValueError:
             print("Formato inválido. Use YYYY-MM-DD")
+            registrar_evento(
+                    "WARNING",
+                    f"No se digito el formato de fecha adecuado--> {fecha}"
+                )
 
 def validar_fecha2(mensaje, fecha_inicio):
     while True:
@@ -97,10 +162,18 @@ def validar_fecha2(mensaje, fecha_inicio):
             datetime.strptime(fecha, "%Y-%m-%d")
             if datetime.strptime(fecha, "%Y-%m-%d") <= datetime.strptime(fecha_inicio, "%Y-%m-%d"):
                 print("Error: La fecha de devolución no puede ser anterior o igual a la fecha de inicio.")
+                registrar_evento(
+                    "WARNING",
+                    f"Fecha de devolución de préstamo --{fecha}-- no digitada correctamente"
+                )
             else:
                 return fecha
         except ValueError:
             print("Formato inválido. Use YYYY-MM-DD")
+            registrar_evento(
+                    "WARNING",
+                    f"No se digito el formato de fecha adecuado--> {fecha}"
+                )
 
 def gestion_prestamos(herramientas, usuarios, prestamos):
 
@@ -173,6 +246,10 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
     guardar_datos2(prestamos)
 
     print("Préstamo registrado correctamente.")
+    registrar_evento(
+                    "INFO",
+                    f"Prestamo con ID: {id_herramienta} registrado por el administrador"
+                )
 
 def devolver_herramienta(herramientas, prestamos):
 
@@ -186,9 +263,17 @@ def devolver_herramienta(herramientas, prestamos):
 
     if prestamos[id_prestamo]["Estado"] == "Devuelto":
         print("Este préstamo ya fue cerrado.")
+        registrar_evento(
+                    "WARNING",
+                    f"Devolucion de herramienta con ID de prestamo {id_prestamo} previamente ya cerrado, rechazado"
+                )
         return
     if prestamos[id_prestamo]["Estado"] == "Vencido":
         print("Este préstamo está vencido. Por favor, contacte al administrador.")
+        registrar_evento(
+                    "WARNING",
+                    f"Devolucion de herramienta con ID de prestamo {id_prestamo} vencido y rechazado"
+                )
         return
     
     id_herramientas = prestamos[id_prestamo]["Herramienta"]
@@ -201,6 +286,10 @@ def devolver_herramienta(herramientas, prestamos):
     guardar_datos2(prestamos)
 
     print("Herramienta devuelta correctamente.")
+    registrar_evento(
+                    "INFO",
+                    f"Herramienta en prestamo con ID {id_prestamo} entregado"
+                )
 
 def listar_prestamos(prestamos):
 
@@ -215,3 +304,8 @@ def listar_prestamos(prestamos):
         for k, v in datos.items():
             print(f"{k}: {v}")
         print("-" * 30)
+
+    registrar_evento(
+                    "WARNING",
+                    f"Listado de préstamos consultados"
+                )
