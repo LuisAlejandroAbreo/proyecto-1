@@ -22,7 +22,7 @@ def validar_id(datos1):
         else:
             return id_vecino
 
-def validar_usuario():
+def validar_usuario(datos1):
     while True:
         id_vecino = input("Ingrese el ID del usuario: ").strip()
         
@@ -34,6 +34,12 @@ def validar_usuario():
             registrar_evento(
                     "WARNING",
                     f"ID {id_vecino} no digitado correctamente"
+                )
+        elif id_vecino in datos1:
+            print("Error: Ese ID ya existe.")
+            registrar_evento(
+                    "WARNING",
+                    f"ID {id_vecino} ya registrado en el sistema"
                 )
         else:
             return id_vecino
@@ -89,6 +95,21 @@ def validar_tipo():
                     "WARNING",
                     f"Estado {estado} no digitado correctamente"
                 )
+            
+def validar_tipo_provisoria():
+    estados_validos = ["administrador"]
+
+    while True:
+        estado = input("Ingrese el estado (Administrador): ").lower()
+        if estado in estados_validos:
+            return estado.capitalize()
+        else:
+            print("Estado inválido. Opciones válidas:")
+            print(", ".join(estados_validos))
+            registrar_evento(
+                    "WARNING",
+                    f"Estado {estado} no digitado correctamente"
+                )
 
 def gestion_usuarios1(datos1):
 
@@ -126,8 +147,8 @@ def gestion_usuarios1(datos1):
         input("Presione cualquier tecla para continuar")
 
 def crear_usuario(datos1):
-    print("\nDIGITACIÓN DE USUARIOS\n")
-    id_vecino = validar_usuario()
+    print("==========================\nDIGITACIÓN DE USUARIOS\n==========================")
+    id_vecino = validar_usuario(datos1)
     nombre_vecino = validar_nombres("Ingrese el nombre del usuario: ")
     apellido_vecino = validar_nombres("Ingrese el apellido del usuario: ")
     telefono_vecino = validar_tel("Ingrese el telefono del usuario: ")
@@ -153,7 +174,7 @@ def listar_usuarios(datos1):
         print("No hay usuarios registrados.")
         return
 
-    print("\nLISTADO DE USUARIOS\n")    
+    print("=======================\nLISTADO DE USUARIOS\n=======================")    
     for id_usuario, keys  in datos1.items():
         print(f"\nUsuario con ID: {id_usuario}")
         for key, valor in keys.items():
@@ -169,7 +190,7 @@ def buscar_usuario(datos1):
         print("El inventario está vacío. No hay usuarios registrados.")
         return
     
-    print("\nBÚSQUEDA DE USUARIO\n")
+    print("======================\nBÚSQUEDA DE USUARIO\n======================")
     id_usuario = validar_id(datos1)
 
     producto = datos1[id_usuario]
@@ -187,7 +208,7 @@ def actualizar_usuario(datos1):
         print("El inventario está vacío. No hay usuarios para actualizar.")
         return
     
-    print("\nACTUALIZACIÓN DE USUARIO\n")
+    print("==========================\nACTUALIZACIÓN DE USUARIO\n==========================")
     id_usuario = validar_id(datos1)
 
     print(f"Nombre ({datos1[id_usuario]['Nombre']}): ")
@@ -223,7 +244,7 @@ def eliminar_usuario(datos1):
         print("El inventario está vacío. No hay usuarios para eliminar.")
         return
     
-    print("\nELIMINACIÓN DE USUARIO\n")
+    print("==========================\nELIMINACIÓN DE USUARIO\n==========================")
     id_usuario = validar_id(datos1)
     
     persona = datos1[id_usuario]
@@ -260,4 +281,26 @@ def eliminar_usuario(datos1):
                     "INFO",
                     f"Opcion {confirmacion} de decision no digitada correctamente"
                 )
+    
+def crear_usuario_provisional(datos1):
+    print("====================================\nDIGITACIÓN DE USUARIO PROVISIONAL\n====================================")
+    id_vecino = validar_usuario(datos1)
+    nombre_vecino = validar_nombres("Ingrese el nombre del usuario: ")
+    apellido_vecino = validar_nombres("Ingrese el apellido del usuario: ")
+    telefono_vecino = validar_tel("Ingrese el telefono del usuario: ")
+    direccion_vecino = validar_dire("Ingrese la direccion del usuario: ")
+    tipo_vecino_provisoria = validar_tipo_provisoria()
 
+    datos1[id_vecino] = {
+        "Nombre": nombre_vecino,
+        "Apellido": apellido_vecino,
+        "Telefono": int(telefono_vecino),
+        "Direccion": direccion_vecino,    
+        "Tipo" : tipo_vecino_provisoria
+    }
+
+    print("\nUsuario agregado correctamente")
+    registrar_evento(
+                    "INFO",
+                    f"ID {id_vecino} de usuario agregado correctamente"
+                )

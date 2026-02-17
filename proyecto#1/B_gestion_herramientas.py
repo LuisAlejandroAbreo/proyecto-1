@@ -138,7 +138,7 @@ def gestion_herramientas1(datos):
 
 def agregar_herramientas(datos) :
 
-    print("\nDIGITACIÓN DE HERRAMIENTAS\n")
+    print("==============================\nDIGITACIÓN DE HERRAMIENTAS\n==============================")
     id_herramienta = validar_id2(datos)    
     nombre_herramienta = validar_texto("Ingrese el nombre de la herramienta: ")
     categoria_herramienta = validar_texto("Ingrese categoria de la herramienta: ")
@@ -166,7 +166,7 @@ def listar_herramientas(datos):
         print("No hay herramientas registradas.")
         return
     
-    print("\nLISTADO DE HERRAMIENTAS\n")    
+    print("=============================\nLISTADO DE HERRAMIENTAS\n=============================")    
     for id_herramientas, keys  in datos.items():
         print(f"\nHerramienta con ID: {id_herramientas}")
         for key, valor in keys.items():
@@ -183,7 +183,7 @@ def buscar_herramienta(datos):
         print("El inventario está vacío. No hay herramientas para buscar.")
         return
     
-    print("\nBÚSQUEDA DE HERRAMIENTA\n")
+    print("=========================\nBÚSQUEDA DE HERRAMIENTA\n=========================")
     id_herra = validar_id(datos)
 
     producto = datos[id_herra]
@@ -202,7 +202,7 @@ def actualizar_herramienta(datos):
         print("El inventario está vacío. No hay herramientas para actualizar.")
         return
     
-    print("\nACTUALIZACIÓN DE HERRAMIENTA\n")
+    print("=================================\nACTUALIZACIÓN DE HERRAMIENTA\n=================================")
     id_herra = validar_id(datos)
 
     print(f"Nombre ({datos[id_herra]['Nombre']}): ")
@@ -239,7 +239,7 @@ def eliminar_herramienta(datos):
         print("El inventario está vacío. No hay herramientas para eliminar.")
         return
     
-    print("\nELIMINACIÓN DE HERRAMIENTAS\n")
+    print("================================\nELIMINACIÓN DE HERRAMIENTAS\n================================")
     id_herra = validar_id(datos)
     
     producto = datos[id_herra]
@@ -281,7 +281,7 @@ def inactivar_herramienta(datos):
         print("El inventario está vacío. No hay herramientas para inactivar.")
         return
     
-    print("\nINACTIVACIÓN DE HERRAMIENTA\n")
+    print("==============================\nINACTIVACIÓN DE HERRAMIENTA\n==============================")
     id_herra = validar_id(datos)
     if datos[id_herra]["Estado"] == "Inactiva":
         print("La herramienta ya está inactiva.")

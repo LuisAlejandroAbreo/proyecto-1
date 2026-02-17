@@ -218,7 +218,7 @@ def registrar_prestamo(herramientas, usuarios, prestamos):
         print("No hay usuarios registrados.")
         return
     
-    print("\nREGISTRO DE PRÉSTAMOS\n")
+    print("=========================\nREGISTRO DE PRÉSTAMOS\n=========================")
 
     id_prestamo = validar_id_prestamo(prestamos)
 
@@ -259,7 +259,7 @@ def devolver_herramienta(herramientas, prestamos):
         print("No hay préstamos registrados.")
         return
     
-    print("\nDEVOLUCIÓN DE HERRAMIENTA\n")
+    print("============================\nDEVOLUCIÓN DE HERRAMIENTA\n============================")
 
     id_prestamo = validar_id_prestamo2(prestamos)
 
@@ -299,7 +299,7 @@ def listar_prestamos(prestamos):
         print("No hay préstamos registrados.")
         return
     
-    print("\nLISTADO DE PRÉSTAMOS\n")
+    print("========================\nLISTADO DE PRÉSTAMOS\n========================")
 
     for id_prestamo, datos in prestamos.items():
         print(f"\nPréstamo ID: {id_prestamo}")

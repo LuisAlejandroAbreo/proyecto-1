@@ -56,7 +56,7 @@ def validar_id_herramienta(mensaje, herramientas):
             return id_h
 
 def login(usuarios):
-    print("\nINICIO DE SESIÓN\n") 
+    print("================================\n\tINICIO DE SESIÓN\n================================") 
 
     while True:
         id_usuario = input("Ingrese su ID: ")
@@ -76,7 +76,7 @@ def login(usuarios):
     return id_usuario
 
 def consultar_herramientas(herramientas, prestamos):
-    print("\nESTADO DE LAS HERRAMIENTAS\n")
+    print("=============================\nESTADO DE LAS HERRAMIENTAS\n=============================")
 
 
     for id_h, datos in herramientas.items():
@@ -88,16 +88,14 @@ def consultar_herramientas(herramientas, prestamos):
         print(f"Cantidad disponible: {datos['Cantidad']}")
         print(f"Estado: {datos['Estado']}")
         print(f"Valor: ${datos['Valor']:,.2f}")
-
         for p in prestamos.values():
             if p["Herramienta"] == id_h and p["Estado"] == "Activo":
                 print(f"Prestada a Usuario ID: {p['Usuario']}")
-                print(f"Fecha devolución estimada: {p['Fecha_devolucion']}")
-
+                print(f"Cantidad prestada: {p['Cantidad']}")
         print("-" * 50)
 
 def solicitar_herramienta(id_usuario, solicitudes, herramientas):
-    print("\nSOLICITAR HERRAMIENTA\n")
+    print("========================\nSOLICITAR HERRAMIENTA\n========================")
 
     id_herramienta = validar_id_herramienta("Ingrese el ID de la herramienta que desea solicitar: ", herramientas)
     
@@ -127,7 +125,7 @@ def solicitar_herramienta(id_usuario, solicitudes, herramientas):
         "Herramienta": id_herramienta,
         "Cantidad": cantidad,
         "Estado": "Pendiente",
-        "Fecha": datetime.now().strftime("%Y-%m-%d")
+        "Fecha de inicio": datetime.now().strftime("%Y-%m-%d")
     }
 
     registrar_evento(
@@ -140,7 +138,7 @@ def solicitar_herramienta(id_usuario, solicitudes, herramientas):
 
 
 def aprobar_solicitudes(solicitudes, herramientas, prestamos):
-    print("\nSOLICITUDES PENDIENTES\n")
+    print("========================\nSOLICITUDES PENDIENTES\n========================")
 
     for id_s, datos in solicitudes.items():
         if datos["Estado"] == "Pendiente":
@@ -162,14 +160,14 @@ def aprobar_solicitudes(solicitudes, herramientas, prestamos):
                     id_prestamo = str(len(prestamos) + 1)
 
                     prestamos[id_prestamo] = {
-                        "Usuario": datos["Usuario"],
-                        "Herramienta": id_h,
-                        "Cantidad": cantidad,
-                        "Fecha_inicio": datetime.now().strftime("%Y-%m-%d"),
-                        "Fecha_devolucion": fecha_Devolucion_estimada(),
-                        "Estado": "Activo",
-                        "Observaciones": "Aprobado por administrador"
-                    }
+    "Usuario": datos["Usuario"],
+    "Herramienta": id_h,
+    "Cantidad": cantidad,
+    "Fecha de inicio": datetime.now().strftime("%Y-%m-%d"),
+    "Fecha de devolución": fecha_Devolucion_estimada(),
+    "Estado": "Activo",
+    "Observaciones": "Aprobado por administrador"
+}
 
                     datos["Estado"] = "Aprobada"
 

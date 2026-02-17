@@ -1,12 +1,6 @@
 from datetime import datetime
 from C_registro_logs import registrar_evento
 
-def validar_fecha2(prestamos):
-    if datetime.strptime(prestamos["Fecha_devolucion"], "%Y-%m-%d") < datetime.now():
-        return "Vencido"
-    else:
-        return "Activo"
-
 def validar_id(usuarios):
     while True:
         id_usuario = input("Ingrese el ID del usuario: ").strip()
@@ -29,7 +23,7 @@ def validar_id(usuarios):
             return id_usuario
 
 def herramientas_stock_bajo(herramientas):
-    print("\nHERRAMIENTAS CON STOCK BAJO\n")
+    print("============================\nHERRAMIENTAS CON STOCK BAJO\n============================")
 
     encontrados = False
 
@@ -48,43 +42,33 @@ def herramientas_stock_bajo(herramientas):
         print("No hay herramientas con stock bajo.")
 
 def prestamos_activos_vencidos(prestamos):
-    print("\nPRÉSTAMOS ACTIVOS Y VENCIDOS\n")
+    print("=============================\nPRÉSTAMOS ACTIVOS Y VENCIDOS\n=============================")
     
-    encontrados_activos = False
-    encontrados_vencidos = False
+    encontrados = False
+
     for id_p, datos in prestamos.items():
+
         if datos["Estado"] == "Devuelto":
             continue
-        elif datos["Estado"] == "Activo":
-            print(f"Préstamo ID: {id_p}")
-            print(f"Usuario: {datos['Usuario']}")
-            print(f"Herramienta: {datos['Herramienta']}")
-            print(f"Cantidad: {datos['Cantidad']}")
-            print(f"Fecha inicio: {datos['Fecha_inicio']}")
-            print(f"Fecha devolución: {datos['Fecha_devolucion']}")
-            print(f"Estado: {datos['Estado']}")
-            print("-" * 50)
-            encontrados_activos = True
-        elif validar_fecha2(datos) == "Vencido":
-            print(f"Préstamo ID: {id_p}")
-            print(f"Usuario: {datos['Usuario']}")
-            print(f"Herramienta: {datos['Herramienta']}")
-            print(f"Cantidad: {datos['Cantidad']}")
-            print(f"Fecha inicio: {datos['Fecha_inicio']}")
-            print(f"Fecha devolución: {datos['Fecha_devolucion']}")
-            print(f"Estado: {validar_fecha2(datos)}")
-            print("-" * 50)
-            encontrados_vencidos = True
+
+        print(f"Préstamo ID: {id_p}")
+        print(f"Usuario: {datos['Usuario']}")
+        print(f"Herramienta: {datos['Herramienta']}")
+        print(f"Cantidad: {datos['Cantidad']}")
+        print(f"Estado: {datos['Estado']}")
+        print("-" * 50)
+
+        encontrados = True
+
     registrar_evento(
-                    "INFO",
-                    f"Prestamos activos y vencidos consultados"
-                )
+        "INFO",
+        "Prestamos activos y vencidos consultados"
+    )
 
-    if not encontrados_activos and not encontrados_vencidos:
+    if not encontrados:
         print("No hay préstamos activos ni vencidos.")
-
 def historial_usuario(usuarios, prestamos):
-    print("\nHISTORIAL DE PRÉSTAMOS POR USUARIO\n")
+    print("===================================\nHISTORIAL DE PRÉSTAMOS POR USUARIO\n===================================")
 
     if not usuarios:
         print("No hay usuarios registrados.")
@@ -103,8 +87,6 @@ def historial_usuario(usuarios, prestamos):
             print(f"\nPréstamo ID: {id_p}")
             print(f"Herramienta: {datos['Herramienta']}")
             print(f"Cantidad: {datos['Cantidad']}")
-            print(f"Fecha inicio: {datos['Fecha_inicio']}")
-            print(f"Fecha devolución: {datos['Fecha_devolucion']}")
             print(f"Estado: {datos['Estado']}")
             print("-" * 50)
             encontrados = True
@@ -117,7 +99,7 @@ def historial_usuario(usuarios, prestamos):
         print("Este usuario no tiene préstamos registrados.")
 
 def herramientas_mas_solicitadas(herramientas, prestamos):
-    print("\nHERRAMIENTAS MÁS SOLICITADAS\n")
+    print("==============================\nHERRAMIENTAS MÁS SOLICITADAS\n==============================")
 
     contador = {}
 
@@ -147,7 +129,7 @@ def herramientas_mas_solicitadas(herramientas, prestamos):
                 )
 
 def usuarios_mas_activos(usuarios, prestamos):
-    print("\nUSUARIOS QUE MÁS HERRAMIENTAS SOLICITAN\n")
+    print("==========================================\nUSUARIOS QUE MÁS HERRAMIENTAS SOLICITAN\n==========================================")
 
     contador = {}
 
