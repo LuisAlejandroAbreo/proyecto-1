@@ -1,101 +1,127 @@
+🎥 Sistema de Gestión de Préstamo de Herramientas
+
+🔗 Video de Sustentación:
+https://drive.google.com/file/d/1TarIKlmyC9ZG1RDuvIXQdRK6GXw-XGdF/view?usp=sharing
+
 👥 Tipos de Usuario
 🔐 Administrador
 
-Registrar, actualizar y eliminar usuarios
+Tiene control total del sistema:
 
-Registrar, actualizar e inactivar herramientas
+✅ Registrar, actualizar y eliminar usuarios
 
-Aprobar solicitudes de préstamo
+✅ Registrar, actualizar e inactivar herramientas
 
-Ver todos los reportes
+✅ Aprobar solicitudes de préstamo
 
-Gestionar devoluciones
+✅ Gestionar devoluciones
+
+✅ Ver todos los reportes
+
+✅ Supervisar el registro de eventos (logs)
 
 👤 Usuario (Residente)
 
-Consultar herramientas disponibles
+Cuenta con acceso limitado:
 
-Ver estado y disponibilidad
+🔎 Consultar herramientas disponibles
 
-Crear solicitudes de préstamo
+📊 Ver estado y disponibilidad
 
-Consultar su historial de préstamos
+📝 Crear solicitudes de préstamo
 
-🧰 Funcionalidades
-Gestión de Herramientas
+📚 Consultar su historial de préstamos
 
-Crear herramientas
+🧰 Funcionalidades del Sistema
+🔧 Gestión de Herramientas
 
-Listar herramientas
+➕ Crear herramientas
 
-Buscar herramienta por ID o nombre
+📋 Listar herramientas
 
-Actualizar información
+🔎 Buscar herramienta por ID o nombre
 
-Inactivar herramienta
+✏️ Actualizar información
 
-Control de stock
+🚫 Inactivar herramienta
 
-Estados: activa, en reparación, fuera de servicio
+📦 Control automático de stock
 
-Gestión de Usuarios
+📌 Estados posibles:
 
-Crear usuario
+🟢 Activa
 
-Listar usuarios
+🟡 En reparación
 
-Buscar usuario
+🔴 Fuera de servicio
 
-Actualizar datos
+👥 Gestión de Usuarios
 
-Eliminar usuario
+➕ Crear usuario
 
-Gestión de Préstamos
+📋 Listar usuarios
 
-Registrar préstamo
+🔎 Buscar usuario
 
-Validar disponibilidad
+✏️ Actualizar datos
 
-Ajustar stock automáticamente
+❌ Eliminar usuario
 
-Registrar devolución
+🔄 Gestión de Préstamos
 
-Cambiar estado (activo, vencido, devuelto)
+📝 Registrar préstamo
 
-Agregar observaciones
+✔️ Validar disponibilidad
 
-Reportes Disponibles
+📉 Ajustar stock automáticamente
 
-Herramientas con stock bajo (< 3 unidades)
+🔁 Registrar devolución
 
-Préstamos activos
+🔄 Cambiar estado del préstamo:
 
-Préstamos vencidos
+Activo
 
-Historial de préstamos por usuario
+Vencido
 
-Herramientas más solicitadas
+Devuelto
 
-Usuarios que más solicitan herramientas
+🗒️ Agregar observaciones
 
-Registro de Eventos (Logs)
+📊 Reportes Disponibles
 
-Todos los errores y eventos relevantes se almacenan en:
+El sistema genera reportes automáticos como:
 
-logs.txt
+⚠️ Herramientas con stock bajo (< 3 unidades)
 
+📌 Préstamos activos
 
-Ejemplos:
+⏰ Préstamos vencidos
 
-Intentar prestar más herramientas de las disponibles
+📚 Historial de préstamos por usuario
 
-Intentar prestar una herramienta fuera de servicio
+🔝 Herramientas más solicitadas
 
-Errores de validación
+👥 Usuarios que más solicitan herramientas
 
-Accesos no autorizados
+📝 Registro de Eventos (Logs)
 
-📂 Estructura del Proyecto (Ejemplo)
+Todos los errores y eventos importantes se almacenan en:
+
+📄 logs.txt
+
+Ejemplos de registros:
+
+❌ Intentar prestar más herramientas de las disponibles
+
+❌ Intentar prestar una herramienta fuera de servicio
+
+⚠️ Errores de validación
+
+🔐 Accesos no autorizados
+
+Esto permite mayor control, seguridad y trazabilidad del sistema.
+
+📂 Estructura del Proyecto
 📁 proyecto-herramientas
 │── main.py
 │── herramientas.py
@@ -106,30 +132,36 @@ Accesos no autorizados
 │── README.md
 
 
-(La estructura puede variar según tu implementación)
+(La estructura puede variar según la implementación)
 
 🔄 Flujo General del Sistema
 
-Inicio del programa
-
-Inicio de sesión según tipo de usuario
-
-Menú principal
-
-Acceso a módulos según permisos
-
-Registro automático de eventos
+1️⃣ Inicio del programa
+2️⃣ Inicio de sesión según tipo de usuario
+3️⃣ Menú principal
+4️⃣ Acceso a módulos según permisos
+5️⃣ Registro automático de eventos
 
 🛡️ Validaciones Importantes
 
-No se pueden prestar herramientas sin stock disponible.
+El sistema garantiza reglas de negocio como:
 
-No se puede prestar una herramienta en reparación o fuera de servicio.
+🚫 No se pueden prestar herramientas sin stock disponible.
 
-Solo el administrador puede aprobar solicitudes.
+🚫 No se puede prestar una herramienta en reparación o fuera de servicio.
 
-El stock se actualiza automáticamente en préstamos y devoluciones.
+🔐 Solo el administrador puede aprobar solicitudes.
 
-👨‍💻 Autor
+✅ Conclusión
 
-Proyecto desarrollado como práctica académica para la gestión comunitaria de herramientas.
+Este sistema permite:
+
+📊 Mejor control de inventario
+
+🔐 Seguridad en la gestión de préstamos
+
+📈 Generación automática de reportes
+
+📝 Registro detallado de eventos
+
+⚙️ Organización modular y escalable
